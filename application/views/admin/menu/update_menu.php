@@ -1,12 +1,12 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Create Menu</div>
+    <div class="panel-heading">Update Menu</div>
     <div class="panel-body">
         <div class="form-background top-bottom-padding">
             <div class="row">
                 <div class ="col-md-8 margin-top-bottom">
                     <?php echo form_open("admin/menu/update_menu/".$menu['menu_id'], array('id' => 'form_update_menu', 'class' => 'form-horizontal')); ?>
                     <div class ="row">
-                        <div class="col-md-12"> <?php echo $message; ?> </div>
+                        <div class="col-md-12"><?php echo $message; ?> </div>
                     </div>
                     <div class="form-group">
                         <label for="match_date" class="col-md-6 control-label requiredField">

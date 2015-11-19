@@ -2,7 +2,7 @@
     <div class="panel-heading">Menu</div>
     <div class="panel-body">
         <div class="row col-md-12">            
-            <div class="row form-group" style="padding-left: 10px;">
+            <div class="row form-group" style="padding-left:10px;">
                 <div class ="col-md-2 pull-left form-group">
                     <a href="<?php echo base_url().'admin/menu/create_menu'?>">
                         <button id="menu_create_id" value="" class="form-control pull-right btn_custom_button">Create Menu</button>  
@@ -38,7 +38,6 @@
                              </tr>
                             <?php }?>
                         </thead>
-
                     </table>
                 </div>
             </div>

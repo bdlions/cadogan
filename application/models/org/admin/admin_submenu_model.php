@@ -3,8 +3,8 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Admin_submenu_model extends Ion_auth_model
-{
+class Admin_submenu_model extends Ion_auth_model {
+
     public function __construct() {
         parent::__construct();
     }
@@ -12,24 +12,43 @@ class Admin_submenu_model extends Ion_auth_model
     public function submenu_identity_check($identity = '') {
         
     }
-    
-    public function create_submenu()
-    {
-        
+
+    public function create_submenu($additional_data) {
+        $additional_data = $this->_filter_data($this->tables['submenus'], $additional_data);
+        $this->db->insert($this->tables['submenus'], $additional_data);
+        $id = $this->db->insert_id();
+        return (isset($id)) ? $id : FALSE;
+    }
+
+    public function get_all_submenus() {
+        return $this->db->select($this->tables['submenus'] . '.id as menu_id,' . $this->tables['submenus'] . '.*')
+                        ->from($this->tables['submenus'])
+                        ->get();
     }
     
-    public function get_all_submenus()
+     public function get_submenu($menu_id)
     {
+        $this->db->where($this->tables['submenus'] . '.id', $menu_id);
+        return $this->db->select($this->tables['submenus'] . '.id as menu_id, '.$this->tables['submenus'] . '.*')
+                        ->from($this->tables['submenus'])
+                        ->get();
+    }
+
+    public function update_submenu($menu_id, $additional_data) 
+                {
+       $data = $this->_filter_data($this->tables['submenus'], $additional_data);
+        $this->db->where('id', $menu_id);
+        $this->db->update($this->tables['submenus'], $data);
+        if ($this->db->affected_rows() == 0) {
+            return FALSE;
+        }
+        return TRUE;
         
     }
-    
-    public function update_submenu()
-    {
-        
-    }
-    
-    public function delete_submenu()
-    {
-        
-    }
+
+   public function delete_submenu($submenu_id) {
+        $this->db->where('id',$submenu_id);
+       $this->db->delete($this->tables['submenus']);
+   }
+
 }
