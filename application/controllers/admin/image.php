@@ -11,7 +11,7 @@ class Image extends CI_Controller {
         
     }
     
-    public function icon()
+    public function icons()
     {
         $this->data['icon_list'] = array();
         $this->template->load(NULL, "admin/image/icon/index", $this->data);
@@ -21,5 +21,21 @@ class Image extends CI_Controller {
     {
         $this->data['gallery_list'] = array();
         $this->template->load(NULL, "admin/image/icon/index", $this->data);
+    }
+    
+    //--------------- Gallery Images Module -------------------//
+    public function show_all_gallery_images()
+    {
+        
+    }
+    
+    public function create_gallery_image()
+    {
+        
+    }
+    
+    public function delete_gallery_image()
+    {
+        
     }
 }
