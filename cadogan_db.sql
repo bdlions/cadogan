@@ -138,9 +138,9 @@ CREATE TABLE IF NOT EXISTS `logos` (
 ALTER TABLE `logos`
   ADD CONSTRAINT `fk_logos_logo_types1` FOREIGN KEY (`type_id`) REFERENCES `logo_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 INSERT INTO `logos` (`id`, `img`, `type_id`) VALUES
-(1, 'logo1.jpg', 1),
-(2, 'logo2.jpg', 2),
-(3, 'logo3.jpg', 2);
+(1, 'logo.png', 1),
+(2, 'bdlions.png', 2),
+(3, '2nd_logo.png', 2);
 
 CREATE TABLE IF NOT EXISTS `gallery_images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -161,6 +161,8 @@ CREATE TABLE IF NOT EXISTS `home_page_info` (
   `links_title` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+INSERT INTO `home_page_info` (`id`, `title`, `description`, `links_title`) VALUES
+(1, 'Real State Building Surveyors', 'BUILDING SURVEYS', 'Our main services fall under the following headings:');
 
 CREATE TABLE IF NOT EXISTS `links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -172,10 +174,10 @@ CREATE TABLE IF NOT EXISTS `links` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 INSERT INTO `links` (`id`, `img`, `title`, `summary`, `link`, `order`) VALUES
-(1, 'l1.jpg', 'BUILDING SURVEYS', 'For puchase and building defects', 'link1', 1),
-(2, 'l2.jpg', 'DEVELOPMENT & LEGISLATION', 'Party walls and building legislation', 'link2', 2),
-(3, 'l3.jpg', 'DESIGN & CONSTRUCTION', 'Refurbishment, planning & extensions', 'link3', 3),
-(4, 'l4.jpg', 'PROFESSIONAL CONSULTANCY', 'Dilapidation and Expert Witness', 'link4', 4);
+(1, 'l1.jpg', 'BUILDING SURVEYS', 'For puchase and building defects', '1', 1),
+(2, 'l2.jpg', 'DEVELOPMENT & LEGISLATION', 'Party walls and building legislation', '2', 2),
+(3, 'l3.jpg', 'DESIGN & CONSTRUCTION', 'Refurbishment, planning & extensions', '3', 3),
+(4, 'l4.jpg', 'PROFESSIONAL CONSULTANCY', 'Dilapidation and Expert Witness', '4', 4);
 
 CREATE TABLE IF NOT EXISTS `menus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
