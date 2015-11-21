@@ -18,7 +18,9 @@ class Home_model extends Ion_auth_model
     
     public function get_gallery_images()
     {
-        
+        return $this->db->select($this->tables['gallery_images'].'.id as gallery_image_id,'.$this->tables['gallery_images'].'.*')
+                ->from($this->tables['gallery_images'])
+                ->get();
     }
     
     public function get_all_links()

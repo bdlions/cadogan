@@ -1,30 +1,28 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.carousel').carousel({interval: 7000});
+    });
+</script>
 <div class="row">
     <div class="col-md-12">
         <div class="welcomemsg">
-            <span class="black">Welcome to</span> <span class="blueish bold">Real</span> <span class="redish bold">State</span> <span class="blueish">Limited</span>
+<!--            <span class="black">Welcome to</span> <span class="blueish bold">Real</span> <span class="redish bold">State</span> <span class="blueish">Limited</span>-->
+            <span class="black"><?php echo $home_page_info['gallery_image_text']?></span>
         </div>
         <div id="carousel_slider" class="carousel slide slider_border" data-ride="carousel">
-            <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#carousel_slider" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel_slider" data-slide-to="1"></li>
-                <li data-target="#carousel_slider" data-slide-to="2"></li>
+                <?php foreach($gallery_images as $key => $gallery_image){?>
+                    <li data-target="#carousel_slider" data-slide-to="<?php echo $key; ?>" <?php echo ($key == 0)?"class='active'":"" ?></li>
+                <?php } ?>
             </ol>
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="resources/images/slide1.jpg" >
-                    <!--<div class="carousel-caption"></div>-->
-                </div>
-                <div class="item">
-                    <img src="resources/images/slide2.jpg" >
-                    <!--  <div class="carousel-caption"></div>-->
-                </div>
-                <div class="item">
-                    <img src="resources/images/slide3.jpg" >
-                    <!--<div class="carousel-caption"></div>-->
-                </div>
+                <?php foreach($gallery_images as $key => $gallery_image){?>
+                    <div class="<?php echo ($key == 0)?"item active":"item" ?>">
+                        <img src="<?php echo base_url().'resources/images/'.$gallery_image['img']?>" >
+                        <!--<div class="carousel-caption"></div>-->
+                    </div>
+                <?php } ?>
             </div>
 
             <!-- Controls -->
@@ -78,28 +76,4 @@
             </div>
         </div>
     <?php } ?>
-    <!--    <div class="col-md-3">
-            <div class="development_legis">
-                <a class="cursor_pointer">
-                    <h5>Development &amp; Legislation</h5>
-                    <p>Party walls and building legislation</p>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="design_construc">
-                <a class="cursor_pointer">
-                    <h5>Design &amp; Construction</h5>
-                    <p>Refurbishment, planning &amp; extensions</p>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="professional_consult">
-                <a class="cursor_pointer">
-                    <h5>Professional Consultancy</h5>
-                    <p>Dilapidations and Expert Witness</p>
-                </a>
-            </div>
-        </div>-->
 </div>

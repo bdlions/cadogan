@@ -95,7 +95,7 @@ class Auth extends CI_Controller {
                 'type' => 'password',
             );
 
-            $this->template->load(NULL, ADMIN_LOGIN_VIEW, $this->data);
+            $this->template->load(ADMIN_LOGIN_TEMPLATE, ADMIN_LOGIN_VIEW, $this->data);
         }
     }
 

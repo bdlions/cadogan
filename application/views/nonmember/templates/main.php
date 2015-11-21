@@ -13,7 +13,21 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>resources/css/styles.css">
         <script type="text/javascript" src="<?php echo base_url() ?>resources/js/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>resources/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>resources/js/jquery.lavalamp.min.js"></script>
         <title><?php echo SITE_TITLE?></title>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('li.current-menu-item').first().addClass('current');
+            });
+            $(function() {
+                $("ul#menu-main-menu").lavaLamp({
+                    speed: 500
+                });
+            });
+            $(document).ready(function() {
+                $('.carousel').carousel({interval: 7000});
+            });
+        </script>
     </head>
     <body class="home">
         <div class="container">

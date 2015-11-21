@@ -24,6 +24,9 @@ class User extends CI_Controller {
 
     public function index()
     {
+        $gallery_images = $this->home_model->get_gallery_images()->result_array();
+        $this->data['gallery_images'] = $gallery_images;
+        
         $home_page_info = array();
         $home_page_info_array = $this->home_model->get_home_page_info()->result_array();
         if(!empty($home_page_info_array))

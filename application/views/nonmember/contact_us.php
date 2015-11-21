@@ -24,9 +24,6 @@
                     <li>F: <?php echo $address_info['fax']?></li>
                     <li>E: <?php echo $address_info['email']?></li>
                 </ul>
-                <ul class="contact-details">
-                    <li>Email: <a href="">info@real-state.com</a></li>
-                </ul>
             </div>
         </div>
         <div class="row">
@@ -73,7 +70,7 @@
                             <textarea style="resize: none; width: 100%;"></textarea>
                         </div>
                     </div>
-                    <div class="row">
+<!--                    <div class="row">
                         <div class="col-md-12">
                             <label>Antispam</label>
                         </div>
@@ -89,7 +86,7 @@
                             <img width="72" height="24" alt="captcha" src="" /><br />
                             <input type="text"  class="form-control"/>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="row  form-group">
                         <div class="col-md-offset-10 col-md-2">
                             <input type="submit" class="btn btn-default form-control" value="Send">

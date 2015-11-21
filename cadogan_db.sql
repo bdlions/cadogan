@@ -149,20 +149,20 @@ CREATE TABLE IF NOT EXISTS `gallery_images` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 INSERT INTO `gallery_images` (`id`, `img`, `order`) VALUES
-(1, '1.jpg', 1),
-(2, '2.jpg', 2),
-(3, '3.jpg', 3),
-(4, '4.jpg', 4);
+(1, 'slide1.jpg', 1),
+(2, 'slide2.jpg', 2),
+(3, 'slide3.jpg', 3);
 
 CREATE TABLE IF NOT EXISTS `home_page_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gallery_image_text` text,
   `title` varchar(500) NOT NULL,
   `description` text,
   `links_title` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
-INSERT INTO `home_page_info` (`id`, `title`, `description`, `links_title`) VALUES
-(1, 'Real State Building Surveyors', 'BUILDING SURVEYS', 'Our main services fall under the following headings:');
+INSERT INTO `home_page_info` (`id`, `gallery_image_text`, `title`, `description`, `links_title`) VALUES
+(1, 'Welcome to Cadogan Mcqueen', 'Real State Building Surveyors', 'BUILDING SURVEYS', 'Our main services fall under the following headings:');
 
 CREATE TABLE IF NOT EXISTS `links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -174,10 +174,10 @@ CREATE TABLE IF NOT EXISTS `links` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 INSERT INTO `links` (`id`, `img`, `title`, `summary`, `link`, `order`) VALUES
-(1, 'l1.jpg', 'BUILDING SURVEYS', 'For puchase and building defects', '1', 1),
-(2, 'l2.jpg', 'DEVELOPMENT & LEGISLATION', 'Party walls and building legislation', '2', 2),
-(3, 'l3.jpg', 'DESIGN & CONSTRUCTION', 'Refurbishment, planning & extensions', '3', 3),
-(4, 'l4.jpg', 'PROFESSIONAL CONSULTANCY', 'Dilapidation and Expert Witness', '4', 4);
+(1, 'building_servey.png', 'BUILDING SURVEYS', 'For puchase and building defects', '1', 1),
+(2, 'development_legis.png', 'DEVELOPMENT & LEGISLATION', 'Party walls and building legislation', '2', 2),
+(3, 'design_construc.png', 'DESIGN & CONSTRUCTION', 'Refurbishment, planning & extensions', '3', 3),
+(4, 'professional_consult.png', 'PROFESSIONAL CONSULTANCY', 'Dilapidation and Expert Witness', '4', 4);
 
 CREATE TABLE IF NOT EXISTS `menus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
