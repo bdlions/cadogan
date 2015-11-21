@@ -1,8 +1,79 @@
-<?php
+<div class="panel panel-default">
+    <div class="panel-heading">Update Page</div>
+    <div class="panel-body">
+        <div class="form-background top-bottom-padding">
+            <div class="row">
+                <div class ="col-md-8 margin-top-bottom">
+                   <?php echo form_open("admin/page/update_page/".$page['id'], array('id' => 'form_update_page', 'class' => 'form-horizontal')); ?>
+                    <div class ="row">
+                        <div class="col-md-12"> <?php echo $message; ?> </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="match_date" class="col-md-3 control-label requiredField">
+                            Title
+                        </label>
+                        <div class ="col-md-9">
+                            <?php echo form_input($title + array('class' => 'form-control')); ?>
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label for="match_time" class="col-md-3 control-label requiredField">
+                           Submenu Id
+                        </label>
+                        <div class ="col-md-9">
+                            <?php echo form_input($submenu_id + array('class' => 'form-control')); ?>
+                        </div> 
+                    </div>
+<!--                              <div class="form-group">
+                                <label for="website" class="col-md-3 control-label requiredField">
+                                    Set Image
+                                </label>
+                                <div class ="col-md-9">
+                                    <div class="col-md-9">
+                                        <div class="row fileinput-button">
+                                            <button class="btn button-custom">Upload a photo</button>
+                                            <input id="fileupload" type="file" name="userfile">
+                                        </div>
+                                        <div id="progress" class="row progress" style="margin-top: 8px;">
+                                            <div class="progress-bar progress-bar-success"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="profile-picture-box" >
+                                            <div id="files" class="files">
+                                            </div>
+                                        </div>
+                                    </div>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+                                    <div class="col-md-offset-8 col-md-4 disable_padding_right" id="upload">
+                                        <input id="btnSubmit" type="submit" value="Save" class="btn button-custom pull-right"/>
+                                    </div>
+                                </div>
+                            </div>-->
+                        <div class="form-group">
+                        <label for="description" class="col-md-3 control-label requiredField">
+                            Description
+                        </label>
+                        <div class ="col-md-9">
+                            <?php echo form_textarea($description + array('class' => 'form-control')); ?>
+                        </div>
+                    </div>              
+                    
+                    <div class="form-group">
+                        <label for="submit_update_page" class="col-md-6 control-label requiredField">
+
+                        </label>
+                        <div class ="col-md-3 pull-right">
+                            <?php echo form_submit($submit_update_page + array('class' => 'form-control button btn_custom_button')); ?>
+                        </div> 
+                    </div>
+                    <?php echo form_close(); ?>
+                </div>
+            </div>
+            <div class="btn-group" style="padding-left: 10px;">
+                <input type="button" style="width:120px;" value="Back" id="back_button" onclick="javascript:history.back();" class="form-control button btn_custom_button">
+            </div>
+        </div>
+    </div>
+</div>
 

@@ -68,6 +68,16 @@ class Menu extends CI_Controller {
             'type' => 'submit',
             'value' => 'create',
         );
+        
+//          $this->data['description'] = array(
+//            'name' => 'description',
+//            'id' => 'description',
+//            'type' => 'text',
+//            'value' => $this->form_validation->set_value('description'),
+//            'rows'  => '4',
+//            'cols'  => '10'
+//        );
+        
         $this->template->load(NULL, "admin/menu/create_menu", $this->data);
     }
 
@@ -108,6 +118,7 @@ class Menu extends CI_Controller {
             $menu = $menu_info_array[0];
         }
         $this->data['menu'] = $menu;
+        
         $this->data['title'] = array(
             'name' => 'title',
             'id' => 'title',

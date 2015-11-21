@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Create_Submenu</div>
+    <div class="panel-heading">Create Page</div>
     <div class="panel-body">
         <div class="form-background top-bottom-padding">
             <div class="row">
@@ -24,7 +24,7 @@
                             <?php echo form_input($submenu_id + array('class' => 'form-control')); ?>
                         </div> 
                     </div>
-                              <div class="form-group">
+<!--                              <div class="form-group">
                                 <label for="website" class="col-md-3 control-label requiredField">
                                     Set Image
                                 </label>
@@ -49,7 +49,7 @@
                                         <input id="btnSubmit" type="submit" value="Save" class="btn button-custom pull-right"/>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         <div class="form-group">
                         <label for="description" class="col-md-3 control-label requiredField">
                             Description
@@ -60,11 +60,11 @@
                     </div>              
                     
                     <div class="form-group">
-                        <label for="submit_create_match" class="col-md-6 control-label requiredField">
+                        <label for="submit_create_page" class="col-md-6 control-label requiredField">
 
                         </label>
                         <div class ="col-md-3 pull-right">
-                            <?php echo form_submit($submit_create_submenu + array('class' => 'form-control button btn_custom_button')); ?>
+                            <?php echo form_submit($submit_create_page + array('class' => 'form-control button btn_custom_button')); ?>
                         </div> 
                     </div>
                     <?php echo form_close(); ?>
