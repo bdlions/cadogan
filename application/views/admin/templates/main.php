@@ -64,7 +64,7 @@
                             <li id="images">
                                 <a href="#">Images</a>
                                 <ul>
-                                    <li id="icon"><a href="<?php echo base_url()?>admin/image/icons">Icon</a></li>
+                                    <li id="icon"><a href="<?php echo base_url()?>admin/image/logos">Logo</a></li>
                                     <li id="submenu"><a href="<?php echo base_url()?>admin/image/show_all_gallery_images">Gallery Image</a></li>
                                 </ul>
                             </li>

@@ -14,17 +14,71 @@ class Image extends CI_Controller {
         
     }
     
-    public function icons()
+    public function logos()
     {
-        $this->data['icon_list'] = array();
-        $this->template->load(NULL, "admin/image/icon/index", $this->data);
+        $this->data['logo_list'] = $this->admin_image_model->get_all_logos()->result_array();
+        $this->template->load(NULL, "admin/image/logo/index", $this->data);
     }
     
-    public function gallery()
+    public function create_logo()
     {
-        $this->data['gallery_list'] = array();
-        $this->template->load(NULL, "admin/image/icon/index", $this->data);
+        if($this->input->post())
+        {
+            $result = array();
+            if (isset($_FILES["userfile"])) {
+                $file_info = $_FILES["userfile"];
+                $result = $this->image_utils->upload_image($file_info, IMAGE_UPLOAD_PATH);
+                $path = IMAGE_UPLOAD_PATH.$result['upload_data']['file_name'];
+                $logo_type_id = $this->input->post('logo_type_list');
+                if($logo_type_id == LOGO_TYPE_ID_HEADER)
+                {
+                    $this->image_utils->resize_image($path, $path, LOGO_HEADER_HEIGHT, LOGO_HEADER_WIDTH);
+                }
+                else if($logo_type_id == LOGO_TYPE_ID_FOOTER)
+                {
+                    $this->image_utils->resize_image($path, $path, LOGO_FOOTER_HEIGHT, LOGO_FOOTER_WIDTH);
+                }
+                $additional_data = array(
+                    'img' => $result['upload_data']['file_name'],
+                    'type_id' => $logo_type_id
+                );
+                $id = $this->admin_image_library->create_logo($additional_data);
+                if($id !== FALSE)
+                {               
+                    $result['message'] = 'Image is stored successfully.';
+                }
+                else
+                {
+                    $result['message'] = 'Error while uploading image.';
+                }                
+            }
+            else
+            {
+                $result['message'] = 'Please select an image.';
+            }
+            echo json_encode($result);
+            return;
+        }
+        $logo_type_list = array();
+        $logo_types_array = $this->admin_image_library->get_all_logo_types()->result_array();
+        foreach($logo_types_array as $logo_type_info)
+        {
+            $logo_type_list[$logo_type_info['logo_type_id']] = $logo_type_info['title'];
+        }
+        $this->data['logo_type_list'] = $logo_type_list;
+        $this->template->load(NULL, "admin/image/logo/create_logo", $this->data);
     }
+    
+    public function delete_logo()
+    {
+        $logo_id = $this->input->post('logo_id');
+        $this->admin_image_library->delete_logo($logo_id);
+        $response = array(
+            'message' => 'Image is deleted successfully.'
+        );
+        echo json_encode($response);
+    }
+    
     
     //--------------- Gallery Images Module -------------------//
     public function show_all_gallery_images()
