@@ -25,10 +25,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="link" class="col-md-6 control-label requiredField">
-                                   Link
+                                   Submenu
                                 </label>
                                 <div class ="col-md-6">
-                                    <?php echo form_input($link + array('class' => 'form-control')); ?>
+                                    <?php echo form_dropdown('submenu_list', $submenu_list, '', 'class=form-control id=submenu_list'); ?>
                                 </div> 
                             </div>
                             <div class="form-group">
@@ -41,12 +41,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="website" class="col-md-3 control-label requiredField">
-                                   Image
+                                    Set picture
                                 </label>
                                 <div class ="col-md-9">
                                     <div class="col-md-9">
                                         <div class="row fileinput-button">
-                                            <button class="btn button-custom btn_custom_button">Upload a image</button>
+                                            <button class="btn button-custom">Upload a photo</button>
                                             <input id="fileupload" type="file" name="userfile">
                                         </div>
                                         <div id="progress" class="row progress" style="margin-top: 8px;">
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-offset-8 col-md-4 disable_padding_right" id="upload">
-                                        <input id="button_save_image" name="button_save_image" type="submit" value="Save" class="btn button-custom pull-right btn_custom_button"/>
+                                        <input id="button_create_link" name="button_create_link" type="submit" value="Save" class="btn button-custom pull-right"/>
                                     </div>
                                 </div>
                             </div>

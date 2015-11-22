@@ -7,6 +7,8 @@ define("LOGO_TYPE_ID_FOOTER",                               "2");
 define("IMAGE_UPLOAD_PATH",                                 "resources/images/");
 define("GALLERY_IMAGE_WIDTH",                               "800");
 define("GALLERY_IMAGE_HEIGHT",                              "325");
+define("LINK_IMAGE_WIDTH",                                  "100");
+define("LINK_IMAGE_HEIGHT",                                 "100");
 define("LOGO_HEADER_WIDTH",                                 "380");
 define("LOGO_HEADER_HEIGHT",                                "68");
 define("LOGO_FOOTER_WIDTH",                                 "250");

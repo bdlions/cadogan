@@ -1,3 +1,4 @@
+<?php $this->load->view("admin/home/link/modal_delete_link_confirm");?>
 <div class="panel panel-default">
     <div class="panel-heading">Link</div>
     <div class="panel-body">
@@ -31,7 +32,7 @@
                                 <td><?php echo $link_info['link']; ?></td>
                                 <td><?php echo $link_info['order']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url()."admin/home/link/update_link/".$link_info['id'];?>">
+                                    <a href="<?php echo base_url()."admin/home/update_link/".$link_info['id'];?>">
                                         Edit
                                     </a>
                                 </td>

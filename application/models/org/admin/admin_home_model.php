@@ -37,25 +37,35 @@ class Admin_home_model extends Ion_auth_model
     
     public function create_link($additional_data)
     {
-      $data = $this->_filter_data($this->tables['links'], $additional_data);
+        $data = $this->_filter_data($this->tables['links'], $additional_data);
         $this->db->insert($this->tables['links'], $data);
         $id = $this->db->insert_id();
         return (isset($id)) ? $id : FALSE;   
     }
     
-    public function get_link_info()
+    public function get_link_info($link_id)
     {
-        
+        $this->db->where('id',$link_id);
+        return $this->db->select($this->tables['links'].'.id as link_id,'.$this->tables['links'].'.*')
+                ->from($this->tables['links'])
+                ->get();
     }
     
-    public function update_link()
+    public function update_link($link_id, $additional_data)
     {
-        
+        $data = $this->_filter_data($this->tables['links'], $additional_data);
+        $this->db->where('id', $link_id);
+        $this->db->update($this->tables['links'], $data);
+        if ($this->db->affected_rows() == 0) {
+            return FALSE;
+        }
+        return TRUE;
     }
     
-    public function delete_link()
+    public function delete_link($link_id)
     {
-        
+        $this->db->where('id',$link_id);
+        $this->db->delete($this->tables['links']);
     }
     
     // ------------------------- Address Module -----------------------//

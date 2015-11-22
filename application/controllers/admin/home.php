@@ -6,6 +6,8 @@ class Home extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('form_validation');
         $this->load->library('org/admin/admin_home_library');
+        $this->load->library('org/utility/Image_utils');
+        $this->load->library('org/admin/admin_submenu_library');
     }
     // --------------------- Home page Info Module -------------------//
     public function index($home_page_info_id = 0)
@@ -95,18 +97,20 @@ class Home extends CI_Controller {
     
     public function create_link()
     {
-         $this->data['message'] = '';
+        $this->data['message'] = '';
         $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
         $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
+        $this->form_validation->set_rules('summary', 'Summary', 'xss_clean|required');
+        $this->form_validation->set_rules('submenu_list', 'Submenu', 'xss_clean|required');
 
         if ($this->input->post()) {
             $result = array();
             if ($this->form_validation->run() == true) {
                 $additional_data = array(
                     'title' => $this->input->post('title'),
-                    'summary' => htmlentities($this->input->post('summary_editortext')),
-                     'link' => $this->input->post('link'),
-                     'order' => $this->input->post('order'),
+                    'summary' => htmlentities($this->input->post('summary')),
+                    'link' => $this->input->post('submenu_list'),
+                    'order' => $this->input->post('order'),
                 );
                 if (isset($_FILES["userfile"])) {
                     $file_info = $_FILES["userfile"];
@@ -127,13 +131,13 @@ class Home extends CI_Controller {
             echo json_encode($result);
             return;
         }
-        $link_list = array();
-        $link_array = $this->admin_home_library->get_all_links()->result_array();
-        foreach($link_array as $link_info)
+        $submenu_list = array();
+        $submenu_array = $this->admin_submenu_library->get_all_submenus()->result_array();
+        foreach($submenu_array as $submenu_info)
         {
-            $link_list[$link_info['id']] = $link_info['title'];
+            $submenu_list[$submenu_info['submenu_id']] = $submenu_info['title'];
         }
-        $this->data['link_list'] = $link_list;
+        $this->data['submenu_list'] = $submenu_list;
         $this->data['title'] = array(
             'id' => 'title',
             'name' => 'title',
@@ -147,33 +151,104 @@ class Home extends CI_Controller {
             'rows' => '4',
             'cols' => '10'
         );
-       $this->data['link'] = array(
+        $this->data['link'] = array(
             'id' => 'link',
             'name' => 'link',
             'type' => 'text',
         );
-       $this->data['order'] = array(
+        $this->data['order'] = array(
             'id' => 'order',
             'name' => 'order',
             'type' => 'text',
         );
-//        $this->data['submit_create_link'] = array(
-//            'id' => 'submit_create_link',
-//            'name' => 'submit_create_link',
-//            'type' => 'submit',
-//            'value' => 'create',
-//        );
         $this->template->load(NULL, "admin/home/link/create_link", $this->data);
     }
 
-    public function update_link()
+    public function update_link($link_id = 0)
     {
+        $this->data['message'] = '';
+        $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
+        $this->form_validation->set_rules('summary', 'Summary', 'xss_clean|required');
+        $this->form_validation->set_rules('submenu_list', 'Submenu', 'xss_clean|required');
         
+        if ($this->input->post()) {
+            $result = array();
+            if ($this->form_validation->run() == true) {
+                $additional_data = array(
+                    'title' => $this->input->post('title'),
+                    'summary' => htmlentities($this->input->post('summary')),
+                    'link' => $this->input->post('submenu_list'),
+                    'order' => $this->input->post('order'),
+                );
+                if (isset($_FILES["userfile"])) {
+                    $file_info = $_FILES["userfile"];
+                    $result = $this->image_utils->upload_image($file_info, IMAGE_UPLOAD_PATH);
+                    $path = IMAGE_UPLOAD_PATH.$result['upload_data']['file_name'];
+                    $this->image_utils->resize_image($path, $path, LINK_IMAGE_HEIGHT, LINK_IMAGE_WIDTH);
+                    $additional_data['img'] = $result['upload_data']['file_name'];                                  
+                }
+                if ($this->admin_home_library->update_link($link_id, $additional_data)) {
+                    $result['message'] = "Link is updated successfully.";
+                } else {
+                    $result['message'] = 'Error while updating the link.';
+                }
+            } else {
+                $result['message'] = validation_errors();
+            }
+            echo json_encode($result);
+            return;
+        }
+        $submenu_list = array();
+        $submenu_array = $this->admin_submenu_library->get_all_submenus()->result_array();
+        foreach($submenu_array as $submenu_info)
+        {
+            $submenu_list[$submenu_info['submenu_id']] = $submenu_info['title'];
+        }
+        $this->data['submenu_list'] = $submenu_list;
+        $link_info = array();
+        $link_info_array = $this->admin_home_library->get_link_info($link_id)->result_array();
+        if(!empty($link_info_array))
+        {
+            $link_info = $link_info_array[0];
+        }
+        $this->data['link_info'] = $link_info;
+        $this->data['title'] = array(
+            'id' => 'title',
+            'name' => 'title',
+            'type' => 'text',
+            'value' => $link_info['title']
+        );
+        $this->data['summary'] = array(
+            'id' => 'summary',
+            'name' => 'summary',
+            'type' => 'text',
+            'value' => $link_info['summary'],
+            'rows' => '4',
+            'cols' => '10'
+        );
+        $this->data['link'] = array(
+            'id' => 'link',
+            'name' => 'link',
+            'type' => 'text',
+            'value' => $link_info['link']
+        );
+        $this->data['order'] = array(
+            'id' => 'order',
+            'name' => 'order',
+            'type' => 'text',
+            'value' => $link_info['order']
+        );
+        $this->template->load(NULL, "admin/home/link/update_link", $this->data);
     }
     
     public function delete_link()
     {
-        
+        $link_id = $this->input->post('link_id');
+        $this->admin_home_library->delete_link($link_id);
+        $response = array(
+            'message' => 'Link is deleted successfully.'
+        );
+        echo json_encode($response);
     }
     
     // --------------------- Address Module ------------------------//
