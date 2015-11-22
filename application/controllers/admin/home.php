@@ -88,15 +88,84 @@ class Home extends CI_Controller {
     // ---------------------- Link Module -------------------------//
     public function link()
     {
-        $this->data['link_list'] = array();
+        $this->data['link_list'] = $this->admin_home_library->get_all_links()->result_array();
         $this->template->load(NULL, "admin/home/link/index", $this->data);
     }
     
+    
     public function create_link()
     {
-        
+         $this->data['message'] = '';
+        $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
+        $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
+
+        if ($this->input->post()) {
+            $result = array();
+            if ($this->form_validation->run() == true) {
+                $additional_data = array(
+                    'title' => $this->input->post('title'),
+                    'summary' => htmlentities($this->input->post('summary_editortext')),
+                     'link' => $this->input->post('link'),
+                     'order' => $this->input->post('order'),
+                );
+                if (isset($_FILES["userfile"])) {
+                    $file_info = $_FILES["userfile"];
+                    $result = $this->image_utils->upload_image($file_info, IMAGE_UPLOAD_PATH);
+                    $path = IMAGE_UPLOAD_PATH.$result['upload_data']['file_name'];
+                    $this->image_utils->resize_image($path, $path, LINK_IMAGE_HEIGHT, LINK_IMAGE_WIDTH);
+                    $additional_data['img'] = $result['upload_data']['file_name'];                                  
+                }
+                $id = $this->admin_home_library->create_link($additional_data);
+                if ($id !== FALSE) {
+                    $result['message'] = "Link is created successfully.";
+                } else {
+                    $result['message'] = 'Error while creating a link.';
+                }
+            } else {
+                $result['message'] = validation_errors();
+            }
+            echo json_encode($result);
+            return;
+        }
+        $link_list = array();
+        $link_array = $this->admin_home_library->get_all_links()->result_array();
+        foreach($link_array as $link_info)
+        {
+            $link_list[$link_info['id']] = $link_info['title'];
+        }
+        $this->data['link_list'] = $link_list;
+        $this->data['title'] = array(
+            'id' => 'title',
+            'name' => 'title',
+            'type' => 'text',
+        );
+        $this->data['summary'] = array(
+            'id' => 'summary',
+            'name' => 'summary',
+            'type' => 'text',
+            'value' => $this->form_validation->set_value('summary'),
+            'rows' => '4',
+            'cols' => '10'
+        );
+       $this->data['link'] = array(
+            'id' => 'link',
+            'name' => 'link',
+            'type' => 'text',
+        );
+       $this->data['order'] = array(
+            'id' => 'order',
+            'name' => 'order',
+            'type' => 'text',
+        );
+//        $this->data['submit_create_link'] = array(
+//            'id' => 'submit_create_link',
+//            'name' => 'submit_create_link',
+//            'type' => 'submit',
+//            'value' => 'create',
+//        );
+        $this->template->load(NULL, "admin/home/link/create_link", $this->data);
     }
-    
+
     public function update_link()
     {
         
