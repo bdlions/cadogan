@@ -1,3 +1,4 @@
+<?php $this->load->view("admin/image/gallery/modal_delete_confirm_phptography_image");?>
 <style type="text/css">
 
     .item{
@@ -23,20 +24,24 @@
 </style>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("div.item").each(function() {
-            $(this).find('div').height($(window).height() - $("body nav").height() - 200);
-        });
-        $("#myCarousel").carousel({
-            interval: false,
-            pause: false
-        });
-        $('#myCarousel').bind('slid.bs.carousel', function (e) {
-            var current_img_id = $('.item.active').find('div').prop('id');
-            var delete_url = '<?php echo base_url(); ?>' +'admin/image/delete_gallery_image/'+current_img_id;
-            $("#delete_current_image").attr("href", ""+delete_url);
-        });
+$(document).ready(function() {
+    var gallery_image_list = <?php echo json_encode($gallery_image_list); ?>;
+    if(gallery_image_list.length > 0)
+    {
+        $('#input_photography_id').val(gallery_image_list[0]['id']);
+    }  
+    $("div.item").each(function() {
+        $(this).find('div').height($(window).height() - $("body nav").height() - 200);
     });
+    $("#myCarousel").carousel({
+        interval: false,
+        pause: false
+    });
+    $('#myCarousel').bind('slid.bs.carousel', function (e) {
+        var current_img_id = $('.item.active').find('div').prop('id');
+        $('#input_photography_id').val(current_img_id);
+    });
+});
 </script>
 
 <div class="panel panel-default">
@@ -74,7 +79,7 @@
             
             <div class="col-md-2" style="padding-left: 25px;">
                 <?php if(!empty($gallery_image_list)): ?>
-                    <a onclick="open_modal_photo_delete_confirm(<?php echo $gallery_image_list[0]['id']; ?>)">Delete</a>
+                    <a onclick="open_modal_photo_delete_confirm()">Delete</a>
                 <?php endif; ?>
             </div>
             
@@ -83,4 +88,3 @@
 </div>
 
 
-<?php $this->load->view("admin/image/gallery/modal_delete_confirm_phptography_image");?>

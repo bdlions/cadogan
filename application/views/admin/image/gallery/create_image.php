@@ -4,9 +4,10 @@
             <div class="panel-heading">Add Image</div>
             <div class="panel-body">
                 <div class="row form-horizontal form-background top-bottom-padding">  
-                    <?php echo form_open("admin/applications_photography/add_image", array('id' => 'form_add_image', 'class' => 'form-horizontal', 'onsubmit' => 'return false;'))?>
+                    <?php echo form_open("admin/image/create_gallery_image", array('id' => 'form_create_gallery_image', 'class' => 'form-horizontal', 'onsubmit' => 'return false;'))?>
                     <div class="row">
                         <div class ="col-md-10 margin-top-bottom">                            
+                            <input type="hidden" id="abc" name="abc"/>
                             <div class="form-group">
                                 <label for="website" class="col-md-3 control-label requiredField">
                                     Set picture
@@ -27,13 +28,11 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-md-offset-8 col-md-4 disable_padding_right" id="upload">
-                                        <input id="btnSubmit" type="submit" value="Save" class="btn button-custom pull-right"/>
+                                        <input id="button_save_image" name="button_save_image" type="submit" value="Save" class="btn button-custom pull-right"/>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <?php echo form_close();?>
@@ -45,7 +44,7 @@
 <script>
 $(function () {
     // Change this to the location of your server-side upload handler:
-    var url = "<?php echo base_url();?>admin/image/add_gallery_image",
+    var url = "<?php echo base_url();?>admin/image/create_gallery_image",
     uploadButton = $('<input type="submit" value="Save"/>').addClass('btn button-custom pull-right').text('Confirm').
     on('click', function() {
         var $this = $(this),data = $this.data();
@@ -61,7 +60,7 @@ $(function () {
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
-        formData: $("#form_add_image").serializeArray(),
+        formData: $("#form_create_gallery_image").serializeArray(),
         autoUpload: false,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         maxFileSize: 5000000, // 5 MB
@@ -100,16 +99,12 @@ $(function () {
         var progress = parseInt(data.loaded / data.total * 100, 10);
         $('#progress .progress-bar').css('width',progress + '%');
     }).on('fileuploaddone', function(e, data) {
-       // alert(data.result.message);
-       var message = data.result.message;
-       print_common_message(message);
-        window.location = '<?php echo base_url();?>admin/image/add_gallery_image';
+       alert(data.result.message);
+       window.location = '<?php echo base_url();?>admin/image/show_all_gallery_images';
     }).on('fileuploadsubmit', function(e, data){
-        data.formData = $('#form_add_image').serializeArray();
+        data.formData = $('#form_create_gallery_image').serializeArray();
     }).on('fileuploadfail', function(e, data) {
-       // alert(data.message);
-       var message = data.message;
-       print_common_message(message);
+        alert(data.message);
         $.each(data.files, function(index, file) {
             var error = $('<span class="text-danger"/>').text('File upload failed.');
             $(data.context.children()[index]).append('<br>').append(error);

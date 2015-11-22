@@ -9,18 +9,14 @@
                     image_id: $("#input_photography_id").val()
                 },
                 success: function(data) {
-//                    console.log(data);
-                    //alert(data.message);
-                    var message = data.message;
-                    print_common_message(message);
+                    alert(data.message);
                     $("#modal_photo_delete_confirm").modal('hide');
                     window.location.reload();
                 }
             });
         });
     });
-    function open_modal_photo_delete_confirm(image_id) {
-        $('#input_photography_id').val(image_id);
+    function open_modal_photo_delete_confirm() {
         $("#modal_photo_delete_confirm").modal('show');
     }
 </script>
@@ -35,7 +31,7 @@
                 <div class="row">
                     <div class="row form-group">
                         <div class ="col-sm-2"></div>
-                        <label class="col-sm-10 control-label">Are you sure to delete this photography?</label>
+                        <label class="col-sm-10 control-label">Are you sure to delete this image?</label>
                         <input id="input_photography_id" name="input_photography_id" value="" type="hidden" class="form-control"/>
                     </div>
                 </div>                
