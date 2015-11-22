@@ -49,4 +49,9 @@ class Page_model extends Ion_auth_model
                 ->join($this->tables['pages'], $this->tables['pages'] . '.submenu_id=' . $this->tables['submenus'] . '.id', 'left')
                 ->get();
     }
+    
+    public function create_feedback()
+    {
+        
+    }
 }

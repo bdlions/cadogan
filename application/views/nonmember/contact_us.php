@@ -70,23 +70,6 @@
                             <textarea style="resize: none; width: 100%;"></textarea>
                         </div>
                     </div>
-<!--                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Antispam</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <em>Please enter the code below:</em><br />
-                            <input type="hidden" name="" value="" />
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <img width="72" height="24" alt="captcha" src="" /><br />
-                            <input type="text"  class="form-control"/>
-                        </div>
-                    </div>-->
                     <div class="row  form-group">
                         <div class="col-md-offset-10 col-md-2">
                             <input type="submit" class="btn btn-default form-control" value="Send">

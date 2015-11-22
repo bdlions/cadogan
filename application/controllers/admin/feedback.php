@@ -11,4 +11,19 @@ class Feedback extends CI_Controller {
         $this->data['feedback_list'] = array();
         $this->template->load(NULL, "admin/feedback/index", $this->data);
     }
+    
+    public function delete_feedback()
+    {
+        
+    }
+    
+    public function show_replies($feedback_id)
+    {
+        
+    }
+    
+    public function create_reply($feedback_id)
+    {
+        
+    }
 }
