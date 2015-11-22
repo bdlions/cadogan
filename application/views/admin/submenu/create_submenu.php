@@ -18,10 +18,10 @@
                     </div>
                     <div class="form-group">
                         <label for="menu_id" class="col-md-6 control-label requiredField">
-                            Menu Id
+                            Menu
                         </label>
                         <div class ="col-md-6">
-                            <?php echo form_input($menu_id + array('class' => 'form-control')); ?>
+                            <?php echo form_dropdown('menu_list', array('0'=>'Select')+$menu_list, '0', 'class=form-control id=menu_list'); ?>
                         </div> 
                     </div>
                     <div class="form-group">

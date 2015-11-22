@@ -23,8 +23,9 @@ class Admin_page_model extends Ion_auth_model
     
     public function get_all_pages()
     { 
-        return $this->db->select($this->tables['pages'].'.*')
+        return $this->db->select($this->tables['submenus'].'.title as submenu_title,'.$this->tables['pages'].'.*')
                 ->from($this->tables['pages'])
+                ->join($this->tables['submenus'], $this->tables['pages'] . '.submenu_id=' . $this->tables['submenus'] . '.id', 'left')
                 ->get();  
     }
     

@@ -13,3 +13,5 @@ define("LOGO_FOOTER_WIDTH",                                 "250");
 define("LOGO_FOOTER_HEIGHT",                                "98");
 define("PAGE_IMAGE_WIDTH",                                  "800");
 define("PAGE_IMAGE_HEIGHT",                                 "325");
+
+define("TERMS_CONDITION_SUBMENU_ID",                           "7");

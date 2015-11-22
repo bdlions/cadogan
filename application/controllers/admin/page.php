@@ -103,7 +103,7 @@ class Page extends CI_Controller {
             if ($this->form_validation->run() == true) {
                 $additional_data = array(
                     'title' => $this->input->post('title'),
-                    'submenu_id' => $this->input->post('submenu_id'),
+                    'submenu_id' => $this->input->post('submenu_list'),
                     'description' => htmlentities($this->input->post('description_editortext')),
                 );
                 if (isset($_FILES["userfile"])) {
@@ -124,7 +124,14 @@ class Page extends CI_Controller {
             echo json_encode($result);
             return;    
         }
-        $page_info = array();
+        $submenu_list = array();
+        $submenu_array = $this->admin_submenu_library->get_all_submenus()->result_array();
+        foreach($submenu_array as $submenu_info)
+        {
+            $submenu_list[$submenu_info['submenu_id']] = $submenu_info['title'];
+        }
+        $this->data['submenu_list'] = $submenu_list;
+        $page = array();
         $page_info_array = $this->admin_page_library->get_page($id)->result_array();
         if (!empty($page_info_array)) {
             $page = $page_info_array[0];

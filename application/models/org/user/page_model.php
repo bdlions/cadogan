@@ -44,9 +44,9 @@ class Page_model extends Ion_auth_model
     {
         $this->db->where($this->tables['submenus'].'.id', $submenu_id);
         return $this->db->select($this->tables['menus'].'.id as menu_id,'.$this->tables['submenus'].'.id as submenu_id,'.$this->tables['pages'].'.id as page_id,'.$this->tables['pages'].'.title,'.$this->tables['pages'].'.img,'.$this->tables['pages'].'.description')
-                ->from($this->tables['menus'])
-                ->join($this->tables['submenus'], $this->tables['submenus'] . '.menu_id=' . $this->tables['menus'] . '.id', 'left')
-                ->join($this->tables['pages'], $this->tables['pages'] . '.submenu_id=' . $this->tables['submenus'] . '.id', 'left')
+                ->from($this->tables['pages'])
+                ->join($this->tables['submenus'], $this->tables['pages'] . '.submenu_id=' . $this->tables['submenus'] . '.id', 'left')
+                ->join($this->tables['menus'], $this->tables['submenus'] . '.menu_id=' . $this->tables['menus'] . '.id', 'left')
                 ->get();
     }
     

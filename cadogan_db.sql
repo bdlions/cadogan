@@ -194,7 +194,7 @@ INSERT INTO `menus` (`id`, `title`, `order`) VALUES
 CREATE TABLE IF NOT EXISTS `submenus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,  
   `title` varchar(500) NOT NULL,
-  `menu_id` int(11) NOT NULL,
+  `menu_id` int(11) DEFAULT NULL,
   `order` int(11) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `fk_submenus_menus1_idx` (`menu_id`)
@@ -207,7 +207,8 @@ INSERT INTO `submenus` (`id`, `title`,`menu_id`, `order`) VALUES
 (3, 'Building Surveys', 2, 2),
 (4, 'Design & Development', 2, 3),
 (5, 'Commercial', 3, 1),
-(6, 'Company Info', 4, 1);
+(6, 'Company Info', 4, 1),
+(7, 'Terms & Conditions', NULL, 1);
 
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

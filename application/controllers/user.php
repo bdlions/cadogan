@@ -42,23 +42,46 @@ class User extends CI_Controller {
     
     public function page($submenu_id = 0)
     {
+        $this->data['submenu_list'] = array();
         $page_info = array();
         $page_info_array = $this->page_model->get_page_info($submenu_id)->result_array();
         if(!empty($page_info_array))
         {
             $page_info = $page_info_array[0];
+            $page_info['description'] = html_entity_decode(html_entity_decode($page_info['description']));
+            $this->data['page_info'] = $page_info;
+            $submenu_list = $this->page_model->get_all_submenus($page_info['menu_id'])->result_array();
+            $this->data['submenu_list'] = $submenu_list;
+            $this->template->load(NULL, "nonmember/page", $this->data);
         }
-        $this->data['page_info'] = $page_info;
-        $submenu_list = $this->page_model->get_all_submenus($page_info['menu_id'])->result_array();
-        $this->data['submenu_list'] = $submenu_list;
-        $this->template->load(NULL, "nonmember/page", $this->data);
+        else
+        {
+            $this->template->load(NULL, "nonmember/empty_page", $this->data);
+        }
     }
     
     public function menu($menu_id)
     {
         $submenu_list = $this->page_model->get_all_submenus($menu_id)->result_array();
         $this->data['submenu_list'] = $submenu_list;
-        $this->template->load(NULL, "nonmember/page", $this->data);
+        if(!empty($submenu_list))
+        {
+            $page_info = array();
+            $page_info_array = $this->page_model->get_page_info($submenu_list[0]['submenu_id'])->result_array();
+            if(!empty($page_info_array))
+            {
+                $page_info = $page_info_array[0];
+                $page_info['description'] = html_entity_decode(html_entity_decode($page_info['description']));
+                $this->data['page_info'] = $page_info;
+                $this->template->load(NULL, "nonmember/page", $this->data);
+            }  
+            $this->template->load(NULL, "nonmember/empty_page", $this->data);
+        }
+        else
+        {
+            $this->template->load(NULL, "nonmember/empty_page", $this->data);
+        }
+        
     }
     
     public function contact_us()

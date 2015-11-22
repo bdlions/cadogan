@@ -44,7 +44,7 @@
                 <div class="col-md-offset-1 col-md-10">
                     <div class="row copyright">
                         <div class="col-md-10">
-                            <p>&copy; Copyright Real State&nbsp;&nbsp;|&nbsp;&nbsp;All Rights Reserved&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">Terms and conditions</a>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+                            <p>&copy; Copyright Real State&nbsp;&nbsp;|&nbsp;&nbsp;All Rights Reserved&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url() . 'user/page/' . TERMS_CONDITION_SUBMENU_ID; ?>">Terms and conditions</a>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
                         </div>
                         <div class="col-md-2 pull-right">
                             <p><a href="#" target="_blank">Designed by bdlions</a></p>

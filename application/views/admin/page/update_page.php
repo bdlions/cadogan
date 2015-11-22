@@ -151,10 +151,10 @@ $(function () {
                     </div>
                     <div class="form-group">
                         <label for="match_time" class="col-md-3 control-label requiredField">
-                           Submenu Id
+                           Submenu
                         </label>
                         <div class ="col-md-9">
-                            <?php echo form_input($submenu_id + array('class' => 'form-control')); ?>
+                            <?php echo form_dropdown('submenu_list', $submenu_list, $page['submenu_id'], 'class=form-control id=submenu_list'); ?>
                         </div> 
                     </div>
 <!--                              <div class="form-group">

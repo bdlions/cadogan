@@ -4,7 +4,7 @@
         <div class="form-background top-bottom-padding">
             <div class="row">
                 <div class ="col-md-8 margin-top-bottom">
-                    <?php echo form_open("admin/submenu/update_submenu/".$submenu['menu_id'], array('id' => 'form_update_submenu', 'class' => 'form-horizontal')); ?>
+                    <?php echo form_open("admin/submenu/update_submenu/".$submenu['submenu_id'], array('id' => 'form_update_submenu', 'class' => 'form-horizontal')); ?>
                     <div class ="row">
                         <div class="col-md-12"><?php echo $message; ?> </div>
                     </div>
@@ -18,10 +18,10 @@
                     </div>
                     <div class="form-group">
                         <label for="match_date" class="col-md-6 control-label requiredField">
-                            Menu_id
+                            Menu
                         </label>
                         <div class ="col-md-6">
-                            <?php echo form_input($menu_id + array('class' => 'form-control')); ?>
+                            <?php echo form_dropdown('menu_list', array('0'=>'Select')+$menu_list, $submenu['menu_id'], 'class=form-control id=menu_list'); ?>
                         </div> 
                     </div>
                     <div class="form-group">

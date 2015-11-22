@@ -9,6 +9,7 @@ class Submenu extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('form_validation');
+        $this->load->library('org/admin/admin_menu_library');
         $this->load->library('org/admin/admin_submenu_library');
     }
 
@@ -34,9 +35,13 @@ class Submenu extends CI_Controller {
             if ($this->form_validation->run() == true) {
                 $additional_data = array(
                     'title' => $this->input->post('title'),
-                    'menu_id' => $this->input->post('menu_id'),
                     'order' => $this->input->post('order'),
                 );
+                $mune_id = $this->input->post('menu_list');
+                if($mune_id > 0)
+                {
+                    $additional_data['menu_id'] = $mune_id;
+                }
                 $submenu_id = $this->admin_submenu_library->create_submenu($additional_data);
                 if ($submenu_id !== FALSE) {
                     $this->data['message'] = "SubMenu is created successfully.";
@@ -47,7 +52,13 @@ class Submenu extends CI_Controller {
                 $this->data['message'] = validation_errors();
             }
         }
-
+        $menu_list = array();
+        $menu_array = $this->admin_menu_library->get_all_menus()->result_array();
+        foreach($menu_array as $menu_info)
+        {
+            $menu_list[$menu_info['menu_id']] = $menu_info['title'];
+        }
+        $this->data['menu_list'] = $menu_list;
         $this->data['title'] = array(
             'id' => 'title',
             'name' => 'title',
@@ -82,9 +93,13 @@ class Submenu extends CI_Controller {
             {
                 $additional_data = array(
                     'title' => $this->input->post('title'),
-                    'menu_id' => $this->input->post('menu_id'),
                     'order' => $this->input->post('order'),
                 );
+                $mune_id = $this->input->post('menu_list');
+                if($mune_id > 0)
+                {
+                    $additional_data['menu_id'] = $mune_id;
+                }
                 if($this->admin_submenu_library->update_submenu($id, $additional_data))
                 {
                     $this->data['message'] = "Menu is updated successfully.";
@@ -99,7 +114,14 @@ class Submenu extends CI_Controller {
                 $this->data['message'] = validation_errors();
             }            
         }
-        $submenu_info = array();
+        $menu_list = array();
+        $menu_array = $this->admin_menu_library->get_all_menus()->result_array();
+        foreach($menu_array as $menu_info)
+        {
+            $menu_list[$menu_info['menu_id']] = $menu_info['title'];
+        }
+        $this->data['menu_list'] = $menu_list;
+        $submenu = array();
         $submenu_info_array = $this->admin_submenu_library->get_submenu($id)->result_array();
         if(!empty($submenu_info_array))
         {

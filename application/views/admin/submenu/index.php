@@ -17,7 +17,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Title</th>
-                                <th>Menu Id</th>
+                                <th>Menu</th>
                                 <th>Order</th>
                                 <th style="text-align: center">Edit</th>
                                 <th style="text-align: center">Delete</th>
@@ -26,7 +26,7 @@
                             <tr>
                                 <td><?php echo $submenu_info['id']; ?></td>
                                 <td><?php echo $submenu_info['title']; ?></td>
-                                <td><?php echo $submenu_info['menu_id']; ?></td>
+                                <td><?php echo $submenu_info['menu_title']; ?></td>
                                 <td><?php echo $submenu_info['order']; ?></td>
                                 <td>
                                     <a href="<?php echo base_url()."admin/submenu/update_submenu/".$submenu_info['id'];?>">
