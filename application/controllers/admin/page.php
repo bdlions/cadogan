@@ -10,6 +10,8 @@ class Page extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('form_validation');
         $this->load->library('org/admin/admin_page_library');
+        $this->load->library('org/admin/admin_submenu_library');
+        $this->load->library('org/utility/Image_utils');
     }
 
     /*
@@ -31,33 +33,44 @@ class Page extends CI_Controller {
         $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
         $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
 
-        if ($this->input->post('submit_create_page')) {
+        if ($this->input->post()) {
+            $result = array();
             if ($this->form_validation->run() == true) {
                 $additional_data = array(
                     'title' => $this->input->post('title'),
-                    'submenu_id' => $this->input->post('submenu_id'),
-                    'description' => $this->input->post('description'),
+                    'submenu_id' => $this->input->post('submenu_list'),
+                    'description' => htmlentities($this->input->post('description_editortext')),
                 );
+                if (isset($_FILES["userfile"])) {
+                    $file_info = $_FILES["userfile"];
+                    $result = $this->image_utils->upload_image($file_info, IMAGE_UPLOAD_PATH);
+                    $path = IMAGE_UPLOAD_PATH.$result['upload_data']['file_name'];
+                    $this->image_utils->resize_image($path, $path, PAGE_IMAGE_HEIGHT, PAGE_IMAGE_WIDTH);
+                    $additional_data['img'] = $result['upload_data']['file_name'];                                  
+                }
                 $page_id = $this->admin_page_library->create_page($additional_data);
                 if ($page_id !== FALSE) {
-                    $this->data['message'] = "Page is created successfully.";
+                    $result['message'] = "Page is created successfully.";
                 } else {
-                    $this->data['message'] = 'Error while creating a page.';
+                    $result['message'] = 'Error while creating a page.';
                 }
             } else {
-                $this->data['message'] = validation_errors();
+                $result['message'] = validation_errors();
             }
+            echo json_encode($result);
+            return;
         }
-
+        $submenu_list = array();
+        $submenu_array = $this->admin_submenu_library->get_all_submenus()->result_array();
+        foreach($submenu_array as $submenu_info)
+        {
+            $submenu_list[$submenu_info['submenu_id']] = $submenu_info['title'];
+        }
+        $this->data['submenu_list'] = $submenu_list;
         $this->data['title'] = array(
             'id' => 'title',
             'name' => 'title',
             'type' => 'text',
-        );
-        $this->data['submenu_id'] = array(
-            'id' => 'submenu_id',
-            'name' => 'submenu_id',
-            'type' => 'int',
         );
         $this->data['description'] = array(
             'id' => 'description',
@@ -85,28 +98,31 @@ class Page extends CI_Controller {
         $this->data['message'] = '';
         $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
         $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
-        if ($this->input->post('submit_update_page')) {
-            if($this->form_validation->run() == true)
-            {
+        if ($this->input->post()) {
+            $result = array();
+            if ($this->form_validation->run() == true) {
                 $additional_data = array(
                     'title' => $this->input->post('title'),
                     'submenu_id' => $this->input->post('submenu_id'),
-                    'description' => $this->input->post('description'),
+                    'description' => htmlentities($this->input->post('description_editortext')),
                 );
-                
-                if($this->admin_page_library->update_page($id, $additional_data))
-                {
-                    $this->data['message'] = "Page is updated successfully.";
+                if (isset($_FILES["userfile"])) {
+                    $file_info = $_FILES["userfile"];
+                    $result = $this->image_utils->upload_image($file_info, IMAGE_UPLOAD_PATH);
+                    $path = IMAGE_UPLOAD_PATH.$result['upload_data']['file_name'];
+                    $this->image_utils->resize_image($path, $path, PAGE_IMAGE_HEIGHT, PAGE_IMAGE_WIDTH);
+                    $additional_data['img'] = $result['upload_data']['file_name'];                                  
                 }
-                else
-                {
-                    $this->data['message'] = 'Error while updating a page.';
+                if ($this->admin_page_library->update_page($id, $additional_data)) {
+                    $result['message'] = "Page is updated successfully.";
+                } else {
+                    $result['message'] = 'Error while updating the page.';
                 }
+            } else {
+                $result['message'] = validation_errors();
             }
-            else
-            {
-                $this->data['message'] = validation_errors();
-            }            
+            echo json_encode($result);
+            return;    
         }
         $page_info = array();
         $page_info_array = $this->admin_page_library->get_page($id)->result_array();
@@ -130,7 +146,7 @@ class Page extends CI_Controller {
             'id' => 'description',
             'name' => 'description',
             'type' => 'text',
-            'value' => $page['description'],
+            'value' => html_entity_decode(html_entity_decode($page['description'])),
             'rows' => '4',
             'cols' => '10'
         );

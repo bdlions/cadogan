@@ -21,12 +21,12 @@ class Admin_submenu_model extends Ion_auth_model {
     }
 
     public function get_all_submenus() {
-        return $this->db->select($this->tables['submenus'] . '.id as menu_id,' . $this->tables['submenus'] . '.*')
+        return $this->db->select($this->tables['submenus'] . '.id as submenu_id,' . $this->tables['submenus'] . '.*')
                         ->from($this->tables['submenus'])
                         ->get();
     }
     
-     public function get_submenu($menu_id)
+    public function get_submenu($menu_id)
     {
         $this->db->where($this->tables['submenus'] . '.id', $menu_id);
         return $this->db->select($this->tables['submenus'] . '.id as menu_id, '.$this->tables['submenus'] . '.*')

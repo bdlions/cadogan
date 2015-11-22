@@ -11,3 +11,5 @@ define("LOGO_HEADER_WIDTH",                                 "380");
 define("LOGO_HEADER_HEIGHT",                                "68");
 define("LOGO_FOOTER_WIDTH",                                 "250");
 define("LOGO_FOOTER_HEIGHT",                                "98");
+define("PAGE_IMAGE_WIDTH",                                  "800");
+define("PAGE_IMAGE_HEIGHT",                                 "325");

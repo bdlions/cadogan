@@ -18,8 +18,6 @@
                                     <th>Id</th>
                                     <th>Title</th>
                                     <th>Submenu Id</th>
-<!--                                    <th>Image</th>-->
-                                    <th>Description</th>
                                     <th style="text-align: center">Edit</th>
                                     <th style="text-align: center">Delete</th>
                                 </tr>
@@ -28,7 +26,6 @@
                                 <td><?php echo $page_info['id']; ?></td>
                                 <td><?php echo $page_info['title']; ?></td>
                                 <td><?php echo $page_info['submenu_id']; ?></td>
-                                <td><?php echo $page_info['description']; ?></td>
                                 <td>
                                     <a href="<?php echo base_url()."admin/page/update_page/".$page_info['id'];?>">
                                         Edit
