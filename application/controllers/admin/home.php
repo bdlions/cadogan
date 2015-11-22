@@ -86,7 +86,7 @@ class Home extends CI_Controller {
     public function link()
     {
         $this->data['link_list'] = array();
-        $this->template->load(NULL, "admin/home/home_page/index", $this->data);
+        $this->template->load(NULL, "admin/home/link/index", $this->data);
     }
     
     public function create_link()
