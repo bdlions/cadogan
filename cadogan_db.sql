@@ -242,6 +242,14 @@ CREATE TABLE IF NOT EXISTS `feedbacks` (
   `email` varchar(500) NOT NULL,
   `phone` varchar(500) DEFAULT '',
   `enquiry` text,
-  `replies` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+CREATE TABLE IF NOT EXISTS `replies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `feedback_id` int(11) NOT NULL,
+  `description` text,
+  PRIMARY KEY (`id`),
+  KEY `fk_replies_feedbacks1_idx` (`feedback_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+ALTER TABLE `replies`
+  ADD CONSTRAINT `fk_replies_feedbacks1` FOREIGN KEY (`feedback_id`) REFERENCES `feedbacks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

@@ -32,6 +32,7 @@ class User extends CI_Controller {
         if(!empty($home_page_info_array))
         {
             $home_page_info = $home_page_info_array[0];
+            $home_page_info['description'] = html_entity_decode(html_entity_decode($home_page_info['description']));
         }
         $this->data['home_page_info'] = $home_page_info;
         

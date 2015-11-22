@@ -24,7 +24,7 @@ class Admin_feedback_model extends Ion_auth_model
         
     }
     
-    public function create_reply($feedback_id)
+    public function create_reply()
     {
         
     }

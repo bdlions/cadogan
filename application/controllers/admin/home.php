@@ -13,31 +13,34 @@ class Home extends CI_Controller {
         $this->data['message'] = '';
         $this->form_validation->set_rules('gallery_image_text', 'Gallery Image Text', 'xss_clean|required');
         $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
-        $this->form_validation->set_rules('description', 'Description', 'xss_clean|required');
+        $this->form_validation->set_rules('description_editortext', 'Description', 'xss_clean|required');
         $this->form_validation->set_rules('links_title', 'Links Title', 'xss_clean|required');
         
-        if ($this->input->post('submit_update_home_page_info')) {
+        if ($this->input->post()) {
+            $result = array();
             if($this->form_validation->run() == true)
             {
                 $additional_data = array(
                     'gallery_image_text' => $this->input->post('gallery_image_text'),
                     'title' => $this->input->post('title'),
-                    'description' => $this->input->post('description'),
+                    'description' => htmlentities($this->input->post('description_editortext')),
                     'links_title' => $this->input->post('links_title')    
                 );
                 if($this->admin_home_model->update_home_page_info($home_page_info_id, $additional_data))
                 {
-                    $this->data['message'] = "Home page info is updated successfully.";
+                    $result['message'] = "Home page info is updated successfully.";
                 }
                 else
                 {
-                    $this->data['message'] = 'Error while updating home page info.';
+                    $result['message'] = 'Error while updating home page info.';
                 }
             }
             else
             {
-                $this->data['message'] = validation_errors();
-            }            
+                $result['message'] = validation_errors();
+            }  
+            echo json_encode($result);
+            return;
         }
         
         $home_page_info = array();
@@ -65,7 +68,7 @@ class Home extends CI_Controller {
             'name' => 'description',
             'type' => 'textarea',
             'rows' => 5,
-            'value' => $home_page_info['description']
+            'value' => html_entity_decode(html_entity_decode($home_page_info['description']))
         );
         $this->data['links_title'] = array(
             'id' => 'links_title',
