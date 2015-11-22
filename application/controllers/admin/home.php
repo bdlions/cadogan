@@ -108,6 +108,105 @@ class Home extends CI_Controller {
     
     public function address($address_id = 0)
     {
+        $this->data['message'] = '';
+        $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
+        $this->form_validation->set_rules('street', 'Street', 'xss_clean|required');
+        $this->form_validation->set_rules('city', 'City', 'xss_clean|required');
+        $this->form_validation->set_rules('post_code', 'Post_code', 'xss_clean|required');
+        $this->form_validation->set_rules('telephone', 'Telephone', 'xss_clean|required');
+        $this->form_validation->set_rules('fax', 'Fax', 'xss_clean|required');
+        $this->form_validation->set_rules('email', 'Email', 'xss_clean|required');
+        
+        if ($this->input->post('submit_update_address')) {
+            if($this->form_validation->run() == true)
+            {
+                $additional_data = array(
+                    'title' => $this->input->post('title'),
+                    'street' => $this->input->post('street'),
+                    'city' => $this->input->post('city'),
+                    'post_code' => $this->input->post('post_code'),    
+                    'telephone' => $this->input->post('telephone'),    
+                    'fax' => $this->input->post('fax'),    
+                    'email' => $this->input->post('email'),    
+                     
+                );
+                if($this->admin_home_model->update_address($address_id, $additional_data))
+                {
+                    $this->data['message'] = "Addresses is updated successfully.";
+                }
+                else
+                {
+                    $this->data['message'] = 'Error while updating Addresses info.';
+                }
+            }
+            else
+            {
+                $this->data['message'] = validation_errors();
+            }            
+        }
+        
+        $address = array();
+        $address_array = $this->admin_home_model->get_all_addresses()->result_array();
+        if(!empty($address_array))
+        {
+            $address = $address_array[0];
+        }
+        $this->data['address'] = $address;
+        
+        $this->data['title'] = array(
+            'id' => 'title',
+            'name' => 'title',
+            'type' => 'text',
+            'value' => $address['title']
+        );
+        $this->data['street'] = array(
+            'id' => 'street',
+            'name' => 'street',
+            'type' => 'text',
+            'value' => $address['street']
+        );
+        
+        $this->data['city'] = array(
+            'id' => 'city',
+            'name' => 'city',
+            'type' => 'text',
+            'value' => $address['city']
+        );
+        
+        $this->data['post_code'] = array(
+            'id' => 'post_code',
+            'name' => 'post_code',
+            'type' => 'text',
+            'value' => $address['post_code']
+        );
+        
+        $this->data['telephone'] = array(
+            'id' => 'telephone',
+            'name' => 'telephone',
+            'type' => 'text',
+            'value' => $address['telephone']
+        );
+        $this->data['fax'] = array(
+            'id' => 'fax',
+            'name' => 'fax',
+            'type' => 'text',
+            'value' => $address['fax']
+        );
+        $this->data['email'] = array(
+            'id' => 'email',
+            'name' => 'email',
+            'type' => 'text',
+            'value' => $address['email']
+        );
+        
+        
+        $this->data['submit_update_address'] = array(
+            'id' => 'submit_update_address',
+            'name' => 'submit_update_address',
+            'type' => 'submit',
+            'value' => 'Update',
+        ); 
+        
         $this->data['address_list'] = array();
         $this->template->load(NULL, "admin/home/address/index", $this->data);
     }

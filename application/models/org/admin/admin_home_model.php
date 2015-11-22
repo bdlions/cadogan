@@ -56,11 +56,19 @@ class Admin_home_model extends Ion_auth_model
     // ------------------------- Address Module -----------------------//
     public function get_all_addresses()
     {
-        
+         return $this->db->select($this->tables['addresses'].'.id as address_id,'.$this->tables['addresses'].'.*')
+                ->from($this->tables['addresses'])
+                ->get();
     }
     
     public function update_address($address_id, $additional_data)
     {
-        
+        $data = $this->_filter_data($this->tables['addresses'], $additional_data);
+        $this->db->where('id', $address_id);
+        $this->db->update($this->tables['addresses'], $data);
+        if ($this->db->affected_rows() == 0) {
+            return FALSE;
+        }
+        return TRUE; 
     }
 }
