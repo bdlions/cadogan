@@ -9,15 +9,11 @@
         <meta name="og:title" content="buy and sales" />
         <meta name="og:description" content="soport website" />	
         <meta name="keywords" content=""/>
-        <title>
-            <?php
-            if (empty($title)) {
-                echo "Sportzweb";
-            } else {
-                echo $title;
-            }
-            ?>
-        </title>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>resources/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>resources/css/styles.css">
+        <script type="text/javascript" src="<?php echo base_url() ?>resources/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>resources/js/bootstrap.min.js"></script>
+        <title><?php echo SITE_TITLE?></title>
     </head>
     <body>
         <?php echo $contents?>	

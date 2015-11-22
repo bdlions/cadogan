@@ -50,8 +50,11 @@ class Page_model extends Ion_auth_model
                 ->get();
     }
     
-    public function create_feedback()
+    public function create_feedback($additional_data)
     {
-        
+        $additional_data = $this->_filter_data($this->tables['feedbacks'], $additional_data);
+        $this->db->insert($this->tables['feedbacks'], $additional_data);
+        $id = $this->db->insert_id();
+        return (isset($id)) ? $id : FALSE;
     }
 }

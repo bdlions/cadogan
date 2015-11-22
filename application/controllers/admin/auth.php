@@ -94,7 +94,11 @@ class Auth extends CI_Controller {
                 'id' => 'password',
                 'type' => 'password',
             );
-
+            $this->data['submit_login'] = array('name' => 'submit_login',
+                'id' => 'submit_login',
+                'type' => 'submit',
+                'value' => 'Login',
+            );
             $this->template->load(ADMIN_LOGIN_TEMPLATE, ADMIN_LOGIN_VIEW, $this->data);
         }
     }

@@ -29,7 +29,10 @@
         <div class="row">
             <div class="col-md-8">
                 <h4><b>Contact Form</b></h4>
-                <form >
+                <?php echo form_open("user/contact_us", array('id' => 'form_create_feedback', 'class' => 'form-horizontal')); ?>
+                    <div class ="row">
+                        <div class="col-md-12"> <?php echo $message; ?> </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <label>Name*</label>
@@ -37,7 +40,7 @@
                     </div>
                     <div class="row  form-group">
                         <div class="col-md-12">
-                            <input type="text" class="form-control">
+                            <?php echo form_input($name + array('class' => 'form-control')); ?>
                         </div>
                     </div>
                     <div class="row">
@@ -47,7 +50,7 @@
                     </div>
                     <div class="row  form-group">
                         <div class="col-md-12">
-                            <input type="email" class="form-control">
+                            <?php echo form_input($email + array('class' => 'form-control')); ?>
                         </div>
                     </div>
                     <div class="row">
@@ -57,7 +60,7 @@
                     </div>
                     <div class="row  form-group">
                         <div class="col-md-12">
-                            <input type="text" class="form-control">
+                            <?php echo form_input($phone + array('class' => 'form-control')); ?>
                         </div>
                     </div>
                     <div class="row">
@@ -67,16 +70,15 @@
                     </div>
                     <div class="row  form-group">
                         <div class="col-md-12">
-                            <textarea style="resize: none; width: 100%;"></textarea>
+                            <?php echo form_textarea($enquiry + array('class' => 'form-control')); ?>
                         </div>
                     </div>
                     <div class="row  form-group">
                         <div class="col-md-offset-10 col-md-2">
-                            <input type="submit" class="btn btn-default form-control" value="Send">
+                            <?php echo form_submit($submit_create_feedback + array('class' => 'form-control button')); ?>
                         </div>
                     </div>
-
-                </form>
+                <?php echo form_close(); ?>
             </div>
         </div>
     </div>

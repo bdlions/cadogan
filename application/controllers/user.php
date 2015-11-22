@@ -4,6 +4,7 @@ class User extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('form_validation');
         $this->load->library('org/user/Home_library');
         $this->load->library('org/user/Page_library');
         
@@ -87,6 +88,60 @@ class User extends CI_Controller {
     
     public function contact_us()
     {
+        $this->data['message'] = "";
+        $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
+        $this->form_validation->set_rules('name', 'Name', 'xss_clean|required');
+        $this->form_validation->set_rules('email', 'Email', 'xss_clean|required');
+        if ($this->input->post('submit_create_feedback')) {
+            if($this->form_validation->run() == true)
+            {
+                $additional_data = array(
+                    'name' => $this->input->post('name'),
+                    'email' => $this->input->post('email'),
+                    'phone' => $this->input->post('phone'),
+                    'enquiry' => $this->input->post('enquiry')
+                );
+                if($this->page_model->create_feedback($additional_data))
+                {
+                    $this->data['message'] = "Thank you for your enquiry.";
+                }
+                else
+                {
+                    $this->data['message'] = 'System error. Please try again.';
+                }
+            }
+            else
+            {
+                $this->data['message'] = validation_errors();
+            }            
+        }
+        $this->data['name'] = array(
+            'id' => 'name',
+            'name' => 'name',
+            'type' => 'text'
+        );
+        $this->data['email'] = array(
+            'id' => 'email',
+            'name' => 'email',
+            'type' => 'text'
+        );
+        $this->data['phone'] = array(
+            'id' => 'phone',
+            'name' => 'phone',
+            'type' => 'text'
+        );
+        $this->data['enquiry'] = array(
+            'id' => 'enquiry',
+            'name' => 'enquiry',
+            'type' => 'textarea',
+            'rows' => 5
+        );
+        $this->data['submit_create_feedback'] = array(
+            'id' => 'submit_create_feedback',
+            'name' => 'submit_create_feedback',
+            'type' => 'submit',
+            'value' => 'Send',
+        );
         $this->template->load(NULL, "nonmember/contact_us", $this->data);
     }
 }
