@@ -38,16 +38,16 @@
     </div>
 </div>	
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         <article>
-            <h1><?php echo $home_page_info['title'] ?></h1>
+            <h2><?php echo $home_page_info['title'] ?></h2>
             <p>
                 <?php echo $home_page_info['description'] ?>
             </p>
 
         </article>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <aside>
             <div class="contact">
                 <h5>Contact Us</h5>

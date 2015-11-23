@@ -32,8 +32,8 @@
 }
 
 .carousel-indicators li {
-    background-color: #7E2618!important;
-    border: 1px solid #7E2618!important;
+    background-color: #333!important;
+    border: 1px solid #333!important;
     border-radius: 0!important;
     cursor: pointer;
     display: inline-block;
@@ -44,8 +44,8 @@
 }
 
 .carousel-indicators .active {
-    background-color: #06383E!important;
-    border: 1px solid #06383E!important;
+    background-color: #c68934!important;
+    border: 1px solid #c68934!important;
     border-radius: 0!important;
     cursor: pointer!important;
     display: inline-block;
@@ -56,8 +56,8 @@
 }
 
 .slider_border{
-    border: 2px solid #efefef;
-    padding: 1px;
+/*    border: 2px solid #efefef;
+    padding: 1px;*/
 }
 
 .home article {
@@ -131,8 +131,9 @@
 
 
 
-.menu li a {
+.menu li a, .menu li a:hover, .menu li a:focus {
     display: block;
+    color: #333;
     height:33px;
     line-height:31px;
     font-size: 14px;
@@ -143,12 +144,12 @@
 
 .menu li.current-menu-item a,
 .menu li.current_page_parent a {
-    color: #E52B38;
+    color: #c68934!important;
 }
 
-.menu li a:hover {
+/*.menu li a:hover {
     color:#E52B38;
-}
+}*/
 
 ul.sub-menu {
     position: absolute;
@@ -215,14 +216,23 @@ ul.sub-menu li {
     margin-bottom: 6px;
     font-weight: bold;
     text-transform: uppercase;
+    margin-left: 28px;
 }
 
 .contact p , .contact p a {
-    margin: 5px 0 -5px 0!important;
     padding-left: 0px;
     font-size: 16px;
     color: #707173;
     text-decoration: none;
+}
+.contact p {
+    margin-left: 28px!important;
+    margin-top: 5px!important;
+    margin-bottom: 5px!important;
+}
+.contact p a {
+    margin-top: 5px!important;
+    margin-bottom: 5px!important;
 }
 
 .contact p a:hover {
@@ -251,7 +261,7 @@ ul.sub-menu li {
 }
 
 .building_servey h5, .development_legis h5, .design_construc h5, .professional_consult h5 {
-    color: #06383E;
+    color: #C68934;
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 4px;
@@ -658,10 +668,11 @@ table td {
         margin-left: 10px!important;
     }
     .float_phone{
-        color: #0071B9;
+        color: #c68934;
         font-size: 20px;
         margin-top: 10px;
         float: right!important;
+        padding-top: 50px;
     }
     .menu li {
         background: url("../images/menu-devider.png") no-repeat scroll right 50% transparent;
@@ -695,9 +706,9 @@ table td {
         margin-left: 10px!important;
     }
     .float_phone{
-        color: #0071B9;
+       color: #c68934;
         font-size: 20px;
-        margin-top: 10px;
+        margin-top: -45px;
         float: right!important;
     }
     .menu li {
@@ -734,7 +745,7 @@ table td {
         margin-left: 0!important;
     }
     .float_phone{
-        color: #0071B9;
+        color: #c68934;
         font-size: 20px;
         margin-top: 10px;
         float: left!important;

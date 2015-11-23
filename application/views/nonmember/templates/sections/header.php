@@ -32,11 +32,11 @@
 <div class="row">
     <div class="col-md-12">
         <ul id="menu-main-menu" class="menu list-unstyled">
-            <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-16"><a href="<?php echo base_url()?>">Home</a></li>
+            <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page <?php if($menu_id == "-2") echo "current-menu-item page_item page-item-2 current_page_item"?> menu-item-16"><a href="<?php echo base_url()?>">Home</a></li>
             <?php foreach($menu_list as $menu_info) { ?>
-            <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="<?php echo base_url().'user/menu/'.$menu_info['menu_id']?>"><?php echo $menu_info['title']?></a></li>
+            <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page <?php if($menu_id == $menu_info['menu_id']) echo "current-menu-item page_item page-item-2 current_page_item"?> menu-item-17"><a href="<?php echo base_url().'user/menu/'.$menu_info['menu_id']?>"><?php echo $menu_info['title']?></a></li>
             <?php } ?>
-            <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="<?php echo base_url().'user/contact_us'?>">Contact Us</a></li>
+            <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page <?php if($menu_id == "-1") echo "current-menu-item page_item page-item-2 current_page_item"?> menu-item-21"><a href="<?php echo base_url().'user/contact_us'?>">Contact Us</a></li>
         </ul>
     </div>
 </div>

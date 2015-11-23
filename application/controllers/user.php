@@ -34,6 +34,7 @@ class User extends CI_Controller {
 
     public function index()
     {
+        $this->data['menu_id'] = "-2";
         $gallery_images = $this->home_model->get_gallery_images()->result_array();
         $this->data['gallery_images'] = $gallery_images;
         
@@ -64,6 +65,7 @@ class User extends CI_Controller {
     
     public function menu($menu_id)
     {
+        $this->data['menu_id'] = $menu_id;
         $submenu_list = $this->page_model->get_all_submenus($menu_id)->result_array();
         $this->data['submenu_list'] = $submenu_list;
         if(!empty($submenu_list))
@@ -91,6 +93,7 @@ class User extends CI_Controller {
     
     public function contact_us()
     {
+        $this->data['menu_id'] = "-1";
         $this->data['message'] = "";
         $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
         $this->form_validation->set_rules('name', 'Name', 'xss_clean|required');
