@@ -21,12 +21,6 @@ class User extends CI_Controller {
         
         $logo_list = $this->page_model->get_all_logos()->result_array();
         $this->data['logo_list'] = $logo_list;
-    }
-
-    public function index()
-    {
-        $gallery_images = $this->home_model->get_gallery_images()->result_array();
-        $this->data['gallery_images'] = $gallery_images;
         
         $home_page_info = array();
         $home_page_info_array = $this->home_model->get_home_page_info()->result_array();
@@ -36,6 +30,12 @@ class User extends CI_Controller {
             $home_page_info['description'] = html_entity_decode(html_entity_decode($home_page_info['description']));
         }
         $this->data['home_page_info'] = $home_page_info;
+    }
+
+    public function index()
+    {
+        $gallery_images = $this->home_model->get_gallery_images()->result_array();
+        $this->data['gallery_images'] = $gallery_images;
         
         $link_list = $this->home_model->get_all_links()->result_array();
         $this->data['link_list'] = $link_list;
@@ -77,7 +77,10 @@ class User extends CI_Controller {
                 $this->data['page_info'] = $page_info;
                 $this->template->load(NULL, "nonmember/page", $this->data);
             }  
-            $this->template->load(NULL, "nonmember/empty_page", $this->data);
+            else
+            {
+                $this->template->load(NULL, "nonmember/empty_page", $this->data);
+            }            
         }
         else
         {

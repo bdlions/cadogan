@@ -3,7 +3,9 @@
         <?php foreach($logo_list as $logo_info){
             if($logo_info['type_id'] == LOGO_TYPE_ID_HEADER){
         ?>
-                <img class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>" alt="Real State Logo" height="68" width="380"> 
+        <a href="<?php echo base_url();?>">
+            <img class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>" alt="Real State Logo" height="68" width="380"> 
+        </a>        
         <?php 
            } 
         } 

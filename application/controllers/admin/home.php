@@ -17,6 +17,7 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
         $this->form_validation->set_rules('description_editortext', 'Description', 'xss_clean|required');
         $this->form_validation->set_rules('links_title', 'Links Title', 'xss_clean|required');
+        $this->form_validation->set_rules('copy_right', 'Copyright', 'xss_clean|required');
         
         if ($this->input->post()) {
             $result = array();
@@ -26,7 +27,8 @@ class Home extends CI_Controller {
                     'gallery_image_text' => $this->input->post('gallery_image_text'),
                     'title' => $this->input->post('title'),
                     'description' => htmlentities($this->input->post('description_editortext')),
-                    'links_title' => $this->input->post('links_title')    
+                    'links_title' => $this->input->post('links_title'),
+                    'copy_right' => $this->input->post('copy_right')
                 );
                 if($this->admin_home_model->update_home_page_info($home_page_info_id, $additional_data))
                 {
@@ -77,6 +79,12 @@ class Home extends CI_Controller {
             'name' => 'links_title',
             'type' => 'text',
             'value' => $home_page_info['links_title']
+        );
+        $this->data['copy_right'] = array(
+            'id' => 'copy_right',
+            'name' => 'copy_right',
+            'type' => 'text',
+            'value' => $home_page_info['copy_right']
         );
         $this->data['submit_update_home_page_info'] = array(
             'id' => 'submit_update_home_page_info',

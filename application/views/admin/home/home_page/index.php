@@ -98,6 +98,14 @@ $(function () {
                 </div> 
             </div>
             <div class="form-group">
+                <label for="copy_right" class="col-md-4 control-label requiredField">
+                    Copyright *
+                </label>
+                <div class ="col-md-8">
+                    <?php echo form_input($copy_right+array('class'=>'form-control')); ?>
+                </div> 
+            </div>
+            <div class="form-group">
                 <label for="submit_update_home_page_info" class="col-md-6 control-label requiredField">
 
                 </label>
