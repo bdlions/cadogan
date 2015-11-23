@@ -4,7 +4,7 @@
             if($logo_info['type_id'] == LOGO_TYPE_ID_HEADER){
         ?>
         <a href="<?php echo base_url();?>">
-            <img class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>" alt="Real State Logo" height="68" width="380"> 
+            <img style="height:68px!important; width:380px!important;" class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>" alt="Real State Logo" height="68" width="380"> 
         </a>        
         <?php 
            } 

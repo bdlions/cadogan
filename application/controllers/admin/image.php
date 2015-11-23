@@ -32,7 +32,8 @@ class Image extends CI_Controller {
                 $logo_type_id = $this->input->post('logo_type_list');
                 if($logo_type_id == LOGO_TYPE_ID_HEADER)
                 {
-                    $this->image_utils->resize_image($path, $path, LOGO_HEADER_HEIGHT, LOGO_HEADER_WIDTH);
+                    //Right now we are not resizing header logo                    
+                    //$this->image_utils->resize_image($path, $path, LOGO_HEADER_HEIGHT, LOGO_HEADER_WIDTH);
                 }
                 else if($logo_type_id == LOGO_TYPE_ID_FOOTER)
                 {
