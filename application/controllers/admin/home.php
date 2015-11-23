@@ -269,7 +269,7 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('city', 'City', 'xss_clean|required');
         $this->form_validation->set_rules('post_code', 'Post_code', 'xss_clean|required');
         $this->form_validation->set_rules('telephone', 'Telephone', 'xss_clean|required');
-        $this->form_validation->set_rules('fax', 'Fax', 'xss_clean|required');
+        //$this->form_validation->set_rules('fax', 'Fax', 'xss_clean|required');
         $this->form_validation->set_rules('email', 'Email', 'xss_clean|required');
         
         if ($this->input->post('submit_update_address')) {
