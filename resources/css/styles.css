@@ -133,13 +133,18 @@
 
 .menu li a, .menu li a:hover, .menu li a:focus {
     display: block;
-    color: #333;
     height:33px;
     line-height:31px;
     font-size: 14px;
     font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
+}
+.menu li a{
+    color: #333;
+}
+.menu li a:hover, .menu li a:focus {
+    color: #c68934!important;
 }
 
 .menu li.current-menu-item a,
