@@ -37,7 +37,8 @@ class Image extends CI_Controller {
                 }
                 else if($logo_type_id == LOGO_TYPE_ID_FOOTER)
                 {
-                    $this->image_utils->resize_image($path, $path, LOGO_FOOTER_HEIGHT, LOGO_FOOTER_WIDTH);
+                    //Right now we are not resizing footer logo   
+                    //$this->image_utils->resize_image($path, $path, LOGO_FOOTER_HEIGHT, LOGO_FOOTER_WIDTH);
                 }
                 $additional_data = array(
                     'img' => $result['upload_data']['file_name'],

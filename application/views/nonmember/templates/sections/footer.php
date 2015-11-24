@@ -8,7 +8,7 @@
                             if($logo_info['type_id'] == LOGO_TYPE_ID_FOOTER){
                         ?>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>">
+                                    <img style="height:110px!important; width:250px!important;" class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>">
                                 </div>
                         <?php 
                            } 
@@ -47,7 +47,7 @@
                             <p><?php echo $home_page_info['copy_right']?></p>
                         </div>
                         <div class="col-md-2 pull-right">
-                            <p><a href="#" target="_blank">Designed by bdlions</a></p>
+                            <p><a href="#">Designed by bdlions</a></p>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <div class="col-md-10" style="background-color: #F5F5F5">
     <div class="col-md-12" style="border-bottom: 1px solid #cccccc; padding-bottom: 8px;"><!--heading-->
         <div class="panel panel-default">
-            <div class="panel-heading">Add Image</div>
+            <div class="panel-heading">Add Image (Min Width:940px and Min Height:347px)</div>
             <div class="panel-body">
                 <div class="row form-horizontal form-background top-bottom-padding">  
                     <?php echo form_open("admin/image/create_gallery_image", array('id' => 'form_create_gallery_image', 'class' => 'form-horizontal', 'onsubmit' => 'return false;'))?>
