@@ -53,6 +53,7 @@ $config['tables']['submenus']                   = 'submenus';
 $config['tables']['pages']                      = 'pages';
 $config['tables']['addresses']                  = 'addresses';
 $config['tables']['feedbacks']                  = 'feedbacks';
+$config['tables']['replies']                    = 'replies';
 
 $config['menu_identity_column']                 = 'title';
 $config['submenu_identity_column']              = 'title';
@@ -66,6 +67,10 @@ $config['page_identity_column']                 = 'title';
  */
 $config['join']['users']  = 'user_id';
 $config['join']['groups'] = 'group_id';
+
+$config['use_feedback_email'] = FALSE;
+$config['feedback_email'] = 'info@cadoganmcqueen.co.uk';
+$config['feedback_subject'] = 'Reply';
 
 /*
  | -------------------------------------------------------------------------
@@ -103,7 +108,7 @@ $config['max_rounds']     = 9;
  | The controller should check this function and act
  | appropriately. If this variable set to 0, there is no maximum.
  */
-$config['site_title']                 = "Example.com";       // Site Title, example.com
+$config['site_title']                 = "Cadogan Mcqueen";       // Site Title, example.com
 $config['admin_email']                = "admin@example.com"; // Admin Email, admin@example.com
 $config['default_group']              = 'members';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
