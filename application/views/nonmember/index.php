@@ -65,7 +65,7 @@
         <div class="col-md-3">
             <div class="row building_servey">
                 <div class="col-md-4">
-                    <img class="img-responsive" src="<?php echo base_url(); ?>resources/images/building_servey.png">
+                    <img class="img-responsive" src="<?php echo base_url().'resources/images/'.$link_info['img']; ?>">
                 </div>
                 <div class="col-md-8">
                     <a href="<?php echo base_url() . 'user/page/' . $link_info['link']; ?>" class="cursor_pointer">
