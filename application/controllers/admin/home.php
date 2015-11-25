@@ -17,6 +17,7 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('title', 'Title', 'xss_clean|required');
         $this->form_validation->set_rules('description_editortext', 'Description', 'xss_clean|required');
         $this->form_validation->set_rules('links_title', 'Links Title', 'xss_clean|required');
+        $this->form_validation->set_rules('footer_message', 'Footer Message', 'xss_clean|required');
         $this->form_validation->set_rules('copy_right', 'Copyright', 'xss_clean|required');
         
         if ($this->input->post()) {
@@ -28,6 +29,7 @@ class Home extends CI_Controller {
                     'title' => $this->input->post('title'),
                     'description' => htmlentities($this->input->post('description_editortext')),
                     'links_title' => $this->input->post('links_title'),
+                    'footer_message' => $this->input->post('footer_message'),
                     'copy_right' => $this->input->post('copy_right')
                 );
                 if($this->admin_home_model->update_home_page_info($home_page_info_id, $additional_data))
@@ -79,6 +81,12 @@ class Home extends CI_Controller {
             'name' => 'links_title',
             'type' => 'text',
             'value' => $home_page_info['links_title']
+        );
+        $this->data['footer_message'] = array(
+            'id' => 'footer_message',
+            'name' => 'footer_message',
+            'type' => 'text',
+            'value' => $home_page_info['footer_message']
         );
         $this->data['copy_right'] = array(
             'id' => 'copy_right',

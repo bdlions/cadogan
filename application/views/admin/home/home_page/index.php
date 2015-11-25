@@ -98,6 +98,14 @@ $(function () {
                 </div> 
             </div>
             <div class="form-group">
+                <label for="footer_message" class="col-md-4 control-label requiredField">
+                    Footer Message *
+                </label>
+                <div class ="col-md-8">
+                    <?php echo form_input($footer_message+array('class'=>'form-control')); ?>
+                </div> 
+            </div>
+            <div class="form-group">
                 <label for="copy_right" class="col-md-4 control-label requiredField">
                     Copyright *
                 </label>

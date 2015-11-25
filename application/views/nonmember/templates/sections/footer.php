@@ -32,7 +32,7 @@
             <div class="row" >
                 <div class="col-md-offset-1 col-md-10">
                     <div class="slogan">
-                        <p>Nobody Cares More Than Us</p>
+                        <p><?php echo $home_page_info['footer_message']?></p>
                     </div>
                 </div>
             </div>

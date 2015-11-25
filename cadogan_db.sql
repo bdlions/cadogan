@@ -159,6 +159,7 @@ CREATE TABLE IF NOT EXISTS `home_page_info` (
   `title` varchar(500) NOT NULL,
   `description` text,
   `links_title` text,
+  `footer_message` text,
   `copy_right` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
