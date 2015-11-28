@@ -30,11 +30,12 @@ class User extends CI_Controller {
             $home_page_info['description'] = html_entity_decode(html_entity_decode($home_page_info['description']));
         }
         $this->data['home_page_info'] = $home_page_info;
+        $this->data['menu_id'] = MENU_ID_HOME;
     }
 
     public function index()
     {
-        $this->data['menu_id'] = "-2";
+        $this->data['menu_id'] = MENU_ID_HOME;
         $gallery_images = $this->home_model->get_gallery_images()->result_array();
         $this->data['gallery_images'] = $gallery_images;
         
@@ -53,12 +54,14 @@ class User extends CI_Controller {
             $page_info = $page_info_array[0];
             $page_info['description'] = html_entity_decode(html_entity_decode($page_info['description']));
             $this->data['page_info'] = $page_info;
+            $this->data['menu_id'] = $page_info['menu_id'];
             $submenu_list = $this->page_model->get_all_submenus($page_info['menu_id'])->result_array();
             $this->data['submenu_list'] = $submenu_list;
             $this->template->load(NULL, "nonmember/page", $this->data);
         }
         else
         {
+            $this->data['menu_id'] = "-2";
             $this->template->load(NULL, "nonmember/empty_page", $this->data);
         }
     }
@@ -93,7 +96,7 @@ class User extends CI_Controller {
     
     public function contact_us()
     {
-        $this->data['menu_id'] = "-1";
+        $this->data['menu_id'] = MENU_ID_CONTACT_US;
         $this->data['message'] = "";
         $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
         $this->form_validation->set_rules('name', 'Name', 'xss_clean|required');
