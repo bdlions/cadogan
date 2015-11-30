@@ -221,7 +221,7 @@ ul.sub-menu li {
     margin-bottom: 6px;
     font-weight: bold;
     text-transform: uppercase;
-    margin-left: 28px;
+    margin-left: 14px;
 }
 
 .contact p , .contact p a {
@@ -231,7 +231,7 @@ ul.sub-menu li {
     text-decoration: none;
 }
 .contact p {
-    margin-left: 28px!important;
+    margin-left: 14px!important;
     margin-top: 5px!important;
     margin-bottom: 5px!important;
 }
