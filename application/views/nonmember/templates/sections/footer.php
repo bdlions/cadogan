@@ -3,25 +3,25 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
                 <div class="contacts">
-                    <div class="row">
+                    <div class="row" >
                         <?php foreach($logo_list as $logo_info){
                             if($logo_info['type_id'] == LOGO_TYPE_ID_FOOTER){
                         ?>
-                                <div class="col-md-4">
-                                    <img style="height:110px!important; width:250px!important;" class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>">
+                                <div class="col-md-3" style="padding-top:30px; padding-bottom: 30px;">
+                                    <img style="height:60px!important; width:250px!important;" class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>">
                                 </div>
                         <?php 
                            } 
                         } 
                         ?>
-                        <div class="col-md-4">
+<!--                        <div class="col-md-3">
                             <ul class="address">
                                 <li class="head"><?php echo $address_info['title']?></li>
                                 <li><?php echo $address_info['street']?></li>
                                 <li><?php echo $address_info['city']?>, <?php echo $address_info['post_code']?></li>
                                 <li>Tel: <?php echo $address_info['telephone']?></li>
                             </ul>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
