@@ -8,7 +8,7 @@
                             if($logo_info['type_id'] == LOGO_TYPE_ID_FOOTER){
                         ?>
                                 <div class="col-md-3" style="padding-top:30px; padding-bottom: 30px;">
-                                    <img style="height:60px!important; width:250px!important;" class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>">
+                                    <img style="max-height:60px!important; max-width:250px!important;" class="img-responsive" src="<?php echo base_url()?>resources/images/<?php echo $logo_info['img']?>">
                                 </div>
                         <?php 
                            } 
