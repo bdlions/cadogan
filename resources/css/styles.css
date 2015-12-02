@@ -56,8 +56,8 @@
 }
 
 .slider_border{
-/*    border: 2px solid #efefef;
-    padding: 1px;*/
+    /*    border: 2px solid #efefef;
+        padding: 1px;*/
 }
 
 .home article {
@@ -262,7 +262,9 @@ ul.sub-menu li {
     border-bottom: 1px solid #E9E8E7;
     border-top: 1px solid #E9E8E7;
     padding-top: 12px;
-    min-height: 81px;
+    min-height: 120px;
+    margin-left: 0.5px;
+    margin-right: 0.5px;
 }
 
 .building_servey h5, .development_legis h5, .design_construc h5, .professional_consult h5 {
@@ -271,6 +273,7 @@ ul.sub-menu li {
     text-transform: uppercase;
     margin-bottom: 4px;
 }
+
 
 .building_servey p, .development_legis p, .design_construc p, .professional_consult p {
     color: #666;
@@ -656,7 +659,15 @@ table td {
     padding:3px 9px 5px;
 }
 
-
+.center{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top:30px; 
+    padding-bottom: 30px; 
+}
 
 
 
@@ -690,7 +701,7 @@ table td {
         z-index:10;
         position:relative;
     }
-    
+
     .welcomemsg {
         background-color: #FFFFFF;
         font-size: 22px;
@@ -701,7 +712,12 @@ table td {
         top: 44px;
         z-index: 99;
     }
+    .center li{
+        margin-right: 15px;
+    }
+
 }
+
 
 @media (min-width: 768px) and (max-width: 991px){
     .custom > li {
@@ -711,7 +727,7 @@ table td {
         margin-left: 10px!important;
     }
     .float_phone{
-       color: #c68934;
+        color: #c68934;
         font-size: 20px;
         margin-top: -45px;
         float: right!important;
@@ -727,17 +743,21 @@ table td {
         z-index:10;
         position:relative;
     }
-    
+
     .welcomemsg {
-    background-color: #FFFFFF;
-    font-size: 22px;
-    left: 0;
-    opacity: 0.7;
-    padding: 17px 30px;
-    position: absolute;
-    top: 44px;
-    z-index: 99;
-}
+        background-color: #FFFFFF;
+        font-size: 22px;
+        left: 0;
+        opacity: 0.7;
+        padding: 17px 30px;
+        position: absolute;
+        top: 44px;
+        z-index: 99;
+    }
+    .center li{
+        margin-right: 15px;
+        margin-left: 30px;
+    }
 }
 
 
@@ -772,17 +792,21 @@ table td {
         z-index:10;
         position:relative;
     }
-    
+
     .welcomemsg {
-    background-color: #FFFFFF;
-    font-size: 14px;
-    left: 10px;
-    opacity: 0.7;
-    padding: 5px 10px;
-    position: absolute;
-    top: 44px;
-    z-index: 99;
-}
+        background-color: #FFFFFF;
+        font-size: 14px;
+        left: 10px;
+        opacity: 0.7;
+        padding: 5px 10px;
+        position: absolute;
+        top: 44px;
+        z-index: 99;
+    }
+    .center li{
+        margin-right: 15px;
+        margin-left: 30px;
+    }
 }
 
 .btn_custom_button{
