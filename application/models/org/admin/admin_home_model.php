@@ -21,9 +21,9 @@ class Admin_home_model extends Ion_auth_model
         $data = $this->_filter_data($this->tables['home_page_info'], $additional_data);
         $this->db->where('id', $home_page_info_id);
         $this->db->update($this->tables['home_page_info'], $data);
-        if ($this->db->affected_rows() == 0) {
-            return FALSE;
-        }
+//        if ($this->db->affected_rows() == 0) {
+//            return FALSE;
+//        }
         return TRUE;
     }
     
@@ -56,9 +56,9 @@ class Admin_home_model extends Ion_auth_model
         $data = $this->_filter_data($this->tables['links'], $additional_data);
         $this->db->where('id', $link_id);
         $this->db->update($this->tables['links'], $data);
-        if ($this->db->affected_rows() == 0) {
-            return FALSE;
-        }
+//        if ($this->db->affected_rows() == 0) {
+//            return FALSE;
+//        }
         return TRUE;
     }
     
@@ -81,9 +81,9 @@ class Admin_home_model extends Ion_auth_model
         $data = $this->_filter_data($this->tables['addresses'], $additional_data);
         $this->db->where('id', $address_id);
         $this->db->update($this->tables['addresses'], $data);
-        if ($this->db->affected_rows() == 0) {
-            return FALSE;
-        }
+//        if ($this->db->affected_rows() == 0) {
+//            return FALSE;
+//        }
         return TRUE; 
     }
 }

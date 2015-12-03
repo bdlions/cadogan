@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
                 <div class="contacts">
-                    <div class="row" >
+                    <div class="row col-md-12" >
                         <?php foreach($logo_list as $logo_info){
                             if($logo_info['type_id'] == LOGO_TYPE_ID_FOOTER){
                         ?>
@@ -32,8 +32,7 @@
             <div class="row" >
                 <div class="col-md-offset-1 col-md-10">
                     <div class="slogan">
-                        <p>Hello world</p>
-                        <p><?php // echo $home_page_info['footer_message']?></p>
+                        <p><?php echo $home_page_info['footer_message']?></p>
                     </div>
                 </div>
             </div>
