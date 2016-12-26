@@ -12,6 +12,9 @@ class Page extends CI_Controller {
         $this->load->library('org/admin/admin_page_library');
         $this->load->library('org/admin/admin_submenu_library');
         $this->load->library('org/utility/Image_utils');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('admin/auth/login', 'refresh');
+        }
     }
 
     /*
@@ -166,6 +169,22 @@ class Page extends CI_Controller {
             'value' => 'Update',
         );
         $this->template->load(NULL, "admin/page/update_page", $this->data);
+    }
+    
+    /*
+     * Ajax call to delete page image
+     * @author nazmul hasan on 25th december 2015
+     */
+    public function remove_page_image() {
+        $this->data['message'] = '';
+        $page_id = $this->input->post('page_id');
+        $additional_data['img'] = "";
+        if ($this->admin_page_library->update_page($page_id, $additional_data)) {
+            $result['message'] = "Page is removed successfully.";
+        } else {
+            $result['message'] = 'Error while removing the page image.';
+        }
+        echo json_encode($result);
     }
 
     /*

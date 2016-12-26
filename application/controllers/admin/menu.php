@@ -10,6 +10,9 @@ class Menu extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('form_validation');
         $this->load->library('org/admin/admin_menu_library');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('admin/auth/login', 'refresh');
+        }
     }
 
     public function index() {

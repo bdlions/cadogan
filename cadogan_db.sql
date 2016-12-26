@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `name` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
 
 --
 -- Dumping data for table `groups`
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 --
 -- Dumping data for table `login_attempts`
@@ -83,7 +83,7 @@ ALTER TABLE `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `account_status_id`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '\0\0', 'administrator', '59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4', '9462e8eee0', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1373438882, 1, 'Admin', 'istrator', 'ADMIN', '0');
+(1, '', 'administrator', '59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4', '9462e8eee0', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1373438882, 1, 'Admin', 'istrator', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
@@ -99,8 +99,10 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   UNIQUE KEY `uc_users_groups` (`user_id`,`group_id`),
   KEY `fk_users_groups_users1_idx` (`user_id`),
   KEY `fk_users_groups_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
+ALTER TABLE `users_groups`
+  ADD CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 --
 -- Dumping data for table `users_groups`
 --
@@ -115,16 +117,14 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 --
 -- Constraints for table `users_groups`
 --
-ALTER TABLE `users_groups`
-  ADD CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
 
 
 CREATE TABLE IF NOT EXISTS `logo_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
 INSERT INTO `logo_types` (`id`, `title`) VALUES
 (1, 'Header'),
 (2, 'Footer');
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `logos` (
   `type_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_logos_logo_types1_idx` (`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4;
 ALTER TABLE `logos`
   ADD CONSTRAINT `fk_logos_logo_types1` FOREIGN KEY (`type_id`) REFERENCES `logo_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 INSERT INTO `logos` (`id`, `img`, `type_id`) VALUES
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `gallery_images` (
   `img` varchar(500) NOT NULL,
   `order` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4;
 INSERT INTO `gallery_images` (`id`, `img`, `order`) VALUES
 (1, 'slide1.jpg', 1),
 (2, 'slide2.jpg', 2),
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `home_page_info` (
   `footer_message` text,
   `copy_right` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
 INSERT INTO `home_page_info` (`id`, `gallery_image_text`, `title`, `description`, `links_title`) VALUES
 (1, 'Welcome to Cadogan Mcqueen', 'Real State Building Surveyors', 'BUILDING SURVEYS', 'Our main services fall under the following headings:');
 
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `links` (
   `link` text,
   `order` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5;
 INSERT INTO `links` (`id`, `img`, `title`, `summary`, `link`, `order`) VALUES
 (1, 'building_servey.png', 'BUILDING SURVEYS', 'For puchase and building defects', '1', 1),
 (2, 'development_legis.png', 'DEVELOPMENT & LEGISLATION', 'Party walls and building legislation', '2', 2),
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `title` varchar(500) NOT NULL,
   `order` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5;
 INSERT INTO `menus` (`id`, `title`, `order`) VALUES
 (1, 'ABOUT US', 1),
 (2, 'OUR SERVICES', 2),
@@ -234,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `addresses` (
   `fax` varchar(500) NOT NULL,
   `email` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
 INSERT INTO `addresses` (`id`, `title`,`street`, `city`, `post_code`, `telephone`, `fax`, `email`) VALUES
 (1, 'Essex Office', 'Former HMS Essex 135 Ness Road', 'Shoeburyness, Essex', 'SS3 9ES', '+44 (0)1702 293 413', '+44 (0)1702 304 277', 'info@johnsongillies.co.uk');
 

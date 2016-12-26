@@ -54,6 +54,19 @@ $(function () {
         });
     });
     
+    $("#btn_clear_image").on("click", function(){        
+        $.ajax({
+            dataType: 'json',
+            type: "POST",
+            url: '<?php echo base_url().'admin/page/remove_page_image';?>',
+            data: { page_id: <?php echo $page['id']?> },
+            success: function(data) {
+                alert(data.message);
+                window.location = '<?php echo base_url();?>admin/page';
+            }
+        });
+    });
+    
     // Change this to the location of your server-side upload handler:
     var url = "<?php echo base_url().'admin/page/update_page/'.$page['id'];?>",
     uploadButton = $('<input type="submit" value="Save"/>').addClass('btn button-custom pull-right').text('Confirm').
@@ -191,7 +204,15 @@ $(function () {
                             <?php echo form_textarea($description + array('class' => 'form-control')); ?>
                             <input type="hidden" name="description_editortext" id="description_editortext">
                         </div>
-                    </div>              
+                    </div> 
+                    <div class="form-group">
+                        <label for="clear_page" class="col-md-3 control-label requiredField">
+                            
+                        </label>
+                        <div class ="col-md-3 pull-right">
+                            <input type="button" value="Clear Image" id="btn_clear_image" name="btn_clear_image" class="form-control button">
+                        </div> 
+                    </div>
                     <div class="form-group">
                         <label for="picture" class="col-md-3 control-label requiredField">
                             Add picture

@@ -7,6 +7,9 @@ class Image extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('org/admin/Admin_image_library');
         $this->load->library('org/utility/Image_utils');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('admin/auth/login', 'refresh');
+        }
     }
     
     public function index()

@@ -11,6 +11,9 @@ class Submenu extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('org/admin/admin_menu_library');
         $this->load->library('org/admin/admin_submenu_library');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('admin/auth/login', 'refresh');
+        }
     }
 
     /*

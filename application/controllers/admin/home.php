@@ -8,6 +8,9 @@ class Home extends CI_Controller {
         $this->load->library('org/admin/admin_home_library');
         $this->load->library('org/utility/Image_utils');
         $this->load->library('org/admin/admin_submenu_library');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('admin/auth/login', 'refresh');
+        }
     }
     // --------------------- Home page Info Module -------------------//
     public function index($home_page_info_id = 0)
