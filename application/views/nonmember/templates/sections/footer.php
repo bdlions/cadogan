@@ -32,7 +32,8 @@
             <div class="row" >
                 <div class="col-md-offset-1 col-md-10">
                     <div class="slogan">
-                        <p><?php echo $home_page_info['footer_message']?></p>
+                        <p><?php //echo $home_page_info['footer_message']?></p>
+                        <p>Company Nr: 09435809 (England). Trinty House, Heather Park Drive, Greater London, HA0 1SU</p>
                     </div>
                 </div>
             </div>
