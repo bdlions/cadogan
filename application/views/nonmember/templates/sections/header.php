@@ -52,7 +52,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#"><img class="logo-img" src="<?php echo base_url() ?>resources/images/CADOGAN_transparent_logo.png"></a>
+                   <div class="brand-text"> <a class="brand-text-anchor" href="">Cadogan Mcqueen</a></div>
+                    <!--<a href=""><img class="logo-img" src="<?php echo base_url() ?>resources/images/CADOGAN_transparent_logo.png"></a>-->
                 </div>
 
                 <div class="collapse navbar-collapse navbar-collapse-custom" id="concierge-navbar-menu">
