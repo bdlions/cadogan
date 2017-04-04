@@ -62,12 +62,12 @@
 </div>
 <div class="row form-group">
     <?php foreach ($link_list as $link_info) { ?>
-        <div class="col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="row building_servey">
-                <div class="col-md-4">
+                <div class="col-xs-4 col-sm-4 col-md-4">
                     <img class="img-responsive" src="<?php echo base_url().'resources/images/'.$link_info['img']; ?>">
                 </div>
-                <div class="col-md-8">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <a href="<?php echo base_url() . 'user/page/' . $link_info['link']; ?>" class="cursor_pointer">
                         <h5><?php echo $link_info['title']; ?></h5>
                         <p><?php echo $link_info['summary']; ?></p>
