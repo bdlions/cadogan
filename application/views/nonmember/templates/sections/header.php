@@ -1,5 +1,5 @@
 <div class="row paddin_over_top_20px small-and-extra-small-device-display">
-    <div class="col-md-6 form-group">
+    <div class="col-sm-6 col-md-6 form-group">
         <?php
         foreach ($logo_list as $logo_info) {
             if ($logo_info['type_id'] == LOGO_TYPE_ID_HEADER) {
@@ -12,7 +12,7 @@
         }
         ?>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6 col-md-6">
         <!--                            <div class="row">
                     <div class="col-md-12">
                         <ul class="list-unstyled list-inline custom">
@@ -23,6 +23,16 @@
                         </ul>
                     </div>
                 </div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="float_phone"><?php echo $address_info['telephone'] ?></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="float_phone"><?php echo $address_info['telephone'] ?></div> 
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="float_phone"><?php echo $address_info['telephone'] ?></div>
@@ -52,8 +62,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                   <div class="brand-text"> <a class="brand-text-anchor" href="">Cadogan Mcqueen</a></div>
-                    <!--<a href=""><img class="logo-img" src="<?php echo base_url() ?>resources/images/CADOGAN_transparent_logo.png"></a>-->
+                    <div class="brand-text"> <a class="brand-text-anchor" href="http://cadoganmcqueen.co.uk/">Cadogan Mcqueen</a></div>
+                     <!--<a href=""><img class="logo-img" src="<?php echo base_url() ?>resources/images/CADOGAN_transparent_logo.png"></a>-->
                 </div>
 
                 <div class="collapse navbar-collapse navbar-collapse-custom" id="concierge-navbar-menu">

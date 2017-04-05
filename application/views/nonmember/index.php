@@ -39,18 +39,19 @@
 </div>	
 <div class="row">
     <div class="col-md-8">
-        <article>
-            <h2><?php echo $home_page_info['title'] ?></h2>
-            <p>
+        <article class="home-page-info">
+            <h2 class="home-page-info-heading"><?php echo $home_page_info['title'] ?></h2>
+            <p >
                 <?php echo $home_page_info['description'] ?>
             </p>
-
         </article>
     </div>
     <div class="col-md-4">
-        <aside>
+        <aside class="contact-card-bg">
             <div class="contact">
                 <h5>Contact Us</h5>
+                <p><?php echo $address_info['telephone'] ?></p>
+                <p><?php echo $address_info['telephone'] ?></p>
                 <p><?php echo $address_info['telephone'] ?></p>
                 <p><a class="cursor_pointer"><?php echo $address_info['email'] ?></a></p>
             </div>				

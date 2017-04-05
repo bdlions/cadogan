@@ -4,6 +4,9 @@
     font-weight: normal;
     font-style: normal;
 }
+.contact-card-bg{
+    background-color: #e0e0e0;
+}
 @media (max-width : 480px) {
     .navbar-collapse-custom{
         background-color: #FFFFFF;
@@ -34,7 +37,9 @@
         float: left!important;
     }
 }
-
+.home-page-info > p{
+    text-align: justify!important;
+}
 /* --------------------- Mobile and Tablet Device -------------------------------------  */
 @media only screen and (max-width : 767px) {
     html{
@@ -44,15 +49,21 @@
     body{
         font-family: skytext!important;
     }
+    .home-page-info-heading{
+        font-size: 1.5em!important;
+        font-family: skytext!important;
+        font-weight: bold;
+    }
+
     h4{
         font-size: 1.5em!important;
         font-family: skytext!important;
 
     }
     p{
-        font-size: 1rem;
-        font-family: skytext;
-        line-height: 130%;
+        font-size: 1rem!important;
+        font-family: skytext!important;
+        line-height: 130%!important;
     }
     .large_content > p{
         font-size: 1.125rem!important;
@@ -812,12 +823,12 @@
     .list-inline{
         margin-left: 0!important;
     }
-    .float_phone{
-        color: #c68934;
-        font-size: 20px;
-        margin-top: 10px;
-        float: left!important;
-    }
+    /*    .float_phone{
+            color: #c68934;
+            font-size: 20px;
+            margin-top: 10px;
+            float: left!important;
+        }*/
     /*        .menu li {
                 display: block;
                 width: 50%;
@@ -882,7 +893,11 @@
         background-image: none!important;
     }
 
-
+    .float_phone{
+        color: #c68934;
+        font-size: 20px;
+        float: right!important;
+    }
     .tp-leftarrow{	
         cursor:pointer; 
         position:absolute;	
@@ -1543,13 +1558,13 @@
         .list-inline{
             margin-left: 10px!important;
         }
-        .float_phone{
-            color: #c68934;
-            font-size: 20px;
-            margin-top: 10px;
-            float: right!important;
-            padding-top: 50px;
-        }
+        /*        .float_phone{
+                    color: #c68934;
+                    font-size: 20px;
+                    margin-top: 10px;
+                    float: right!important;
+                    padding-top: 50px;
+                }*/
         .menu li {
             background: url("../images/menu-devider.png") no-repeat scroll right 50% transparent;
             float: left;
@@ -1586,12 +1601,12 @@
         .list-inline{
             margin-left: 10px!important;
         }
-        .float_phone{
-            color: #c68934;
-            font-size: 20px;
-            margin-top: -45px;
-            float: right!important;
-        }
+        /*        .float_phone{
+                    color: #c68934;
+                    font-size: 20px;
+                    margin-top: -45px;
+                    float: right!important;
+                }*/
         .menu li {
             background: url("../images/menu-devider.png") no-repeat scroll right 50% transparent;
             float: left;
