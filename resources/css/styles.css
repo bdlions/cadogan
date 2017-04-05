@@ -847,6 +847,7 @@
             }*/
 
     .welcomemsg {
+        display: none;
         background-color: #FFFFFF;
         font-size: 14px;
         left: 10px;
@@ -1578,6 +1579,7 @@
         }
 
         .welcomemsg {
+            display: none;
             background-color: #FFFFFF;
             font-size: 22px;
             left: 0;
@@ -1620,6 +1622,7 @@
         }
 
         .welcomemsg {
+            display: none;
             background-color: #FFFFFF;
             font-size: 22px;
             left: 0;
