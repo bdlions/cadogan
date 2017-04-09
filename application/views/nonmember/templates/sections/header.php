@@ -25,17 +25,17 @@
                 </div>-->
         <div class="row">
             <div class="col-md-12">
-                <div class="float_phone"><?php echo $address_info['telephone'] ?></div>
+                <div class="float_phone">London - 02033978425</div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="float_phone"><?php echo $address_info['telephone'] ?></div> 
+                <div class="float_phone">Luton - 01582227280</div> 
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="float_phone"><?php echo $address_info['telephone'] ?></div>
+                <div class="float_phone">Coventry - 02477220191</div>
             </div>
         </div>
     </div>
