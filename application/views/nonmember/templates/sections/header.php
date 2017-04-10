@@ -4,7 +4,7 @@
         foreach ($logo_list as $logo_info) {
             if ($logo_info['type_id'] == LOGO_TYPE_ID_HEADER) {
                 ?>
-                <a href="<?php echo base_url(); ?>">
+                <a href="http://cadoganmcqueen.co.uk/">
                     <img style="max-height:90px!important; max-width:380px!important;" class="img-responsive" src="<?php echo base_url() ?>resources/images/<?php echo $logo_info['img'] ?>" alt="Cadogan Mcqueen Logo"> 
                 </a>        
                 <?php

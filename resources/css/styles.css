@@ -4,6 +4,13 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'trajanusbricksregular';
+    src: url('../fonts/TrajanusBricks.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .contact-card-bg{
     background-color: #e0e0e0;
 }
@@ -89,11 +96,12 @@
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feb645', endColorstr='#f1e767',GradientType=0 ); /* IE6-9 */
     }
     .brand-text-anchor,.brand-text-anchor:hover,.brand-text-anchor:focus,.brand-text-anchor:visited{
+        font-family: 'trajanusbricksregular';
         text-decoration: none;
         cursor: pointer;
         color: #c68934 !important; 
         text-transform: uppercase; 
-        font-size: 14px; 
+        font-size: 15px; 
     }
     .brand-text{
         margin-top: 10px; 
@@ -896,8 +904,10 @@
 
     .float_phone{
         color: #c68934;
-        font-size: 20px;
-        float: right!important;
+        font-size: 16px;
+        float: right !important;
+        font-weight: 700;
+        padding-top: 5px;
     }
     .tp-leftarrow{	
         cursor:pointer; 

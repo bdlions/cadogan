@@ -20,7 +20,7 @@
                     <li><?php echo $address_info['street']?></li>
                     <li><?php echo $address_info['city']?></li>
                     <li><?php echo $address_info['post_code']?></li>
-                    <li>T: <?php echo $address_info['telephone']?></li>
+                    <!--<li>T: <?php // echo $address_info['telephone']?></li>-->
                     <?php if(!empty($address_info['fax'])) {?>
                     <li>F: <?php echo $address_info['fax']?></li>
                     <?php } ?>
