@@ -50,9 +50,17 @@
         <aside class="contact-card-bg">
             <div class="contact">
                 <h5>Contact Us</h5>
-                <p><?php echo $address_info['telephone'] ?></p>
-                <p><?php echo $address_info['telephone'] ?></p>
-                <p><?php echo $address_info['telephone'] ?></p>
+                <?php 
+                    if(!empty($address_info['telephone1'])){
+                        echo "<p>".$address_info['location1']." - ".$address_info['telephone1']."</p>";
+                    }
+                    if(!empty($address_info['telephone2'])){
+                        echo "<p>".$address_info['location2']." - ".$address_info['telephone2']."</p>";
+                    }
+                    if(!empty($address_info['telephone3'])){
+                        echo "<p>".$address_info['location3']." - ".$address_info['telephone3']."</p>";
+                    }
+                ?>
                 <p><a class="cursor_pointer"><?php echo $address_info['email'] ?></a></p>
             </div>				
         </aside>
