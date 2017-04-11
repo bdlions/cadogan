@@ -47,7 +47,7 @@
         </article>
     </div>
     <div class="col-md-4">
-        <aside class="contact-card-bg contact-card-visibility-hidden-mobile-device">
+        <aside class="contact-card-bg">
             <div class="contact">
                 <h5>Contact Us</h5>
                 <?php 
