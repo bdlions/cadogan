@@ -69,6 +69,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!--<div class="brand-text"> <a class="brand-text-anchor" href="http://cadoganmcqueen.co.uk/">Cadogan Mcqueen</a></div>-->
+                     <a href="http://cadoganmcqueen.co.uk/"><img class="logo-img" src="<?php echo base_url() ?>resources/images/CADOGAN_transparent_logo_header.png"></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-collapse-custom" id="concierge-navbar-menu">
