@@ -34,7 +34,7 @@
             <div class="row" >
                 <div class="col-md-offset-1 col-md-10">
                     <div class="slogan">
-                        <p><?php //echo $home_page_info['footer_message'] ?></p>
+                        <p><?php //echo $home_page_info['footer_message']    ?></p>
                         <p>Company Nr: 09435809 (England). Trinty House, Heather Park Drive, Greater London, HA0 1SU</p>
                     </div>
                 </div>
@@ -57,4 +57,29 @@
             </div>
         </div>
     </div>
+      <div class="footer_contact_bg">
+<div class="container">
+    <div class="row" >
+        <div class="col-md-offset-1 col-md-10">
+            <aside class="contact-card-bg contact-card-visible-in-large-device">
+                <div class="contact footer-contact-custom">
+                    <h5>Contact Us</h5>
+                    <?php
+                    if (!empty($address_info['telephone1'])) {
+                        echo "<p>" . $address_info['location1'] . " - " . $address_info['telephone1'] . "</p>";
+                    }
+                    if (!empty($address_info['telephone2'])) {
+                        echo "<p>" . $address_info['location2'] . " - " . $address_info['telephone2'] . "</p>";
+                    }
+                    if (!empty($address_info['telephone3'])) {
+                        echo "<p>" . $address_info['location3'] . " - " . $address_info['telephone3'] . "</p>";
+                    }
+                    ?>
+                    <p><a class="cursor_pointer"><?php echo $address_info['email'] ?></a></p>
+                </div>				
+            </aside>
+        </div>
+    </div>
+</div>
+</div>
 </div>
