@@ -23,21 +23,27 @@
                         </ul>
                     </div>
                 </div>-->
+        <?php  if(!empty($address_info['telephone1'])){ ?>
         <div class="row">
             <div class="col-md-12">
-                <div class="float_phone">London - 02033978425</div>
+                <div class="float_phone"><?php  echo $address_info['location1']." - ".$address_info['telephone1']; ?></div>
             </div>
         </div>
+        <?php } ?>
+        <?php  if(!empty($address_info['telephone2'])){ ?>
         <div class="row">
             <div class="col-md-12">
-                <div class="float_phone">Luton - 01582227280</div> 
+                <div class="float_phone"><?php  echo $address_info['location2']." - ".$address_info['telephone2']; ?></div> 
             </div>
         </div>
+        <?php } ?>
+        <?php  if(!empty($address_info['telephone3'])){ ?>
         <div class="row">
             <div class="col-md-12">
-                <div class="float_phone">Coventry - 02477220191</div>
+                <div class="float_phone"><?php  echo $address_info['location3']." - ".$address_info['telephone3']; ?></div>
             </div>
         </div>
+        <?php } ?>
     </div>
 </div>
 <div class="row small-and-extra-small-device-display">

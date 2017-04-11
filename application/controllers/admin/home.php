@@ -279,7 +279,7 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('street', 'Street', 'xss_clean|required');
         $this->form_validation->set_rules('city', 'City', 'xss_clean|required');
         $this->form_validation->set_rules('post_code', 'Post_code', 'xss_clean|required');
-        $this->form_validation->set_rules('telephone', 'Telephone', 'xss_clean|required');
+        //$this->form_validation->set_rules('telephone', 'Telephone', 'xss_clean|required');
         //$this->form_validation->set_rules('fax', 'Fax', 'xss_clean|required');
         $this->form_validation->set_rules('email', 'Email', 'xss_clean|required');
         
@@ -290,7 +290,13 @@ class Home extends CI_Controller {
                     'title' => $this->input->post('title'),
                     'street' => $this->input->post('street'),
                     'city' => $this->input->post('city'),
-                    'post_code' => $this->input->post('post_code'),    
+                    'post_code' => $this->input->post('post_code'),
+                    'telephone1' => $this->input->post('telephone1'),
+                    'location1' => $this->input->post('location1'),
+                    'telephone2' => $this->input->post('telephone2'),
+                    'location2' => $this->input->post('location2'),
+                    'telephone3' => $this->input->post('telephone3'),
+                    'location3' => $this->input->post('location3'),
                     'telephone' => $this->input->post('telephone'),    
                     'fax' => $this->input->post('fax'),    
                     'email' => $this->input->post('email'),    
@@ -345,7 +351,42 @@ class Home extends CI_Controller {
             'type' => 'text',
             'value' => $address['post_code']
         );
-        
+        $this->data['telephone1'] = array(
+            'name' => 'telephone1',
+            'id' => 'telephone1',
+            'type' => 'text',
+            'value' => $address['telephone1'],
+        );
+        $this->data['location1'] = array(
+            'name' => 'location1',
+            'id' => 'location1',
+            'type' => 'text',
+            'value' => $address['location1'],
+        );
+        $this->data['telephone2'] = array(
+            'name' => 'telephone2',
+            'id' => 'telephone2',
+            'type' => 'text',
+            'value' => $address['telephone2'],
+        );
+        $this->data['location2'] = array(
+            'name' => 'location2',
+            'id' => 'location2',
+            'type' => 'text',
+            'value' => $address['location2'],
+        );
+        $this->data['telephone3'] = array(
+            'name' => 'telephone3',
+            'id' => 'telephone3',
+            'type' => 'text',
+            'value' => $address['telephone3'],
+        );
+        $this->data['location3'] = array(
+            'name' => 'location3',
+            'id' => 'location3',
+            'type' => 'text',
+            'value' => $address['location3'],
+        );
         $this->data['telephone'] = array(
             'id' => 'telephone',
             'name' => 'telephone',

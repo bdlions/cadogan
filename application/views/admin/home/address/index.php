@@ -40,16 +40,56 @@
                 </div> 
             </div>
             <div class="form-group">
-                <label for="telephone" class="col-md-4 control-label requiredField">
-                   Telephone*
+                <label for="location1" class="col-md-4 control-label requiredField">
+                   Location1
                 </label>
                 <div class ="col-md-8">
-                    <?php echo form_input($telephone+array('class'=>'form-control')); ?>
+                    <?php echo form_input($location1+array('class'=>'form-control')); ?>
+                </div> 
+            </div>
+            <div class="form-group">
+                <label for="telephone1" class="col-md-4 control-label requiredField">
+                   Telephone1
+                </label>
+                <div class ="col-md-8">
+                    <?php echo form_input($telephone1+array('class'=>'form-control')); ?>
+                </div> 
+            </div>
+            <div class="form-group">
+                <label for="location2" class="col-md-4 control-label requiredField">
+                   Location2
+                </label>
+                <div class ="col-md-8">
+                    <?php echo form_input($location2+array('class'=>'form-control')); ?>
+                </div> 
+            </div>
+            <div class="form-group">
+                <label for="telephone2" class="col-md-4 control-label requiredField">
+                   Telephone2
+                </label>
+                <div class ="col-md-8">
+                    <?php echo form_input($telephone2+array('class'=>'form-control')); ?>
+                </div> 
+            </div>
+            <div class="form-group">
+                <label for="location3" class="col-md-4 control-label requiredField">
+                   Location3
+                </label>
+                <div class ="col-md-8">
+                    <?php echo form_input($location3+array('class'=>'form-control')); ?>
+                </div> 
+            </div>
+            <div class="form-group">
+                <label for="telephone3" class="col-md-4 control-label requiredField">
+                   Telephone3
+                </label>
+                <div class ="col-md-8">
+                    <?php echo form_input($telephone3+array('class'=>'form-control')); ?>
                 </div> 
             </div>
             <div class="form-group">
                 <label for="fax" class="col-md-4 control-label requiredField">
-                   Fax*
+                   Fax
                 </label>
                 <div class ="col-md-8">
                     <?php echo form_input($fax+array('class'=>'form-control')); ?>
