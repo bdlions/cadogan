@@ -22,9 +22,15 @@
                     <li><?php echo $address_info['post_code']?></li>
                     <!--<li>T: <?php // echo $address_info['telephone']?></li>-->
                     <div class="medium-and-large-device-display">
-                    <li>T: London - 02033978425</li>
-                    <li>T: Luton - 01582227280</li>
-                    <li>T: Coventry - 02477220191</li>
+                    <?php  if(!empty($address_info['telephone1'])){ ?>
+                        <?php  echo "<li>T: ".$address_info['location1']." - ".$address_info['telephone1']."</li>"; ?>
+                    <?php } ?>
+                    <?php  if(!empty($address_info['telephone2'])){ ?>
+                        <?php  echo "<li>T: ".$address_info['location2']." - ".$address_info['telephone2']."</li>"; ?>
+                    <?php } ?>
+                    <?php  if(!empty($address_info['telephone3'])){ ?>
+                        <?php  echo "<li>T: ".$address_info['location3']." - ".$address_info['telephone3']."</li>"; ?>
+                    <?php } ?>
                     </div>
                     <?php if(!empty($address_info['fax'])) {?>
                     <li>F: <?php echo $address_info['fax']?></li>
