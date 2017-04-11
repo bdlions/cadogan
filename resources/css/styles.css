@@ -82,18 +82,19 @@
     }
 
     .logo-img{
-        height: 50px; 
-        width: 80px; 
+        height: 25px;
+        width: 150px;
         padding: 5px;
+        margin-top: 13px;
     }
 
     .navbar-default-custom{
         height: 50px;
-        background: #feb645; /* Old browsers */
-        background: -moz-linear-gradient(top, #feb645 0%, #f1e767 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, #feb645 0%,#f1e767 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, #feb645 0%,#f1e767 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feb645', endColorstr='#f1e767',GradientType=0 ); /* IE6-9 */
+        background: #927263; /* Old browsers */
+        background: -moz-linear-gradient(top, #927263 0%, #B7A398 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #927263 0%,#B7A398 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #927263 0%,#B7A398 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#927263', endColorstr='#B7A398',GradientType=0 ); /* IE6-9 */
     }
     .brand-text-anchor,.brand-text-anchor:hover,.brand-text-anchor:focus,.brand-text-anchor:visited{
         font-family: 'trajanusbricksregular';
@@ -119,8 +120,9 @@
         border-radius: 0px!important;
     }
     .navbar-toggle-custom > .icon-bar{
-        background-color: #c68934!important;
+        background-color: #ffce00!important;
     }
+    
 
     .paddin_over_top_20px{
         padding-top: 20px;

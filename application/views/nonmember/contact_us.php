@@ -21,6 +21,9 @@
                     <li><?php echo $address_info['city']?></li>
                     <li><?php echo $address_info['post_code']?></li>
                     <!--<li>T: <?php // echo $address_info['telephone']?></li>-->
+                    <li>T: London - 02033978425</li>
+                    <li>T: Luton - 01582227280</li>
+                    <li>T: Coventry - 02477220191</li>
                     <?php if(!empty($address_info['fax'])) {?>
                     <li>F: <?php echo $address_info['fax']?></li>
                     <?php } ?>
