@@ -44,6 +44,12 @@
      .contact-card-visible-in-large-device{
         display: none;
     }
+    .contact {
+        background: url("../images/contact_background.png") no-repeat scroll 0 0 transparent;
+        padding: 89px 10px 12px 22px;
+        margin-top: 0px!important;
+        margin-bottom: 10px;
+    }
 }
 @media (min-width : 992px) {
      .contact {
@@ -52,6 +58,12 @@
     }
      .contact-card-visibility-hidden-mobile-device{
         display: none;
+    }
+     .contact {
+        background: url("../images/contact_background.png") no-repeat scroll 0 0 transparent;
+        padding: 89px 10px 12px 22px;
+        margin-top: 25px!important;
+        margin-bottom: 10px;
     }
 }
 .home-page-info > p{
@@ -915,6 +927,7 @@
 /* --------------------- Medium and Large Device -------------------------------------  */
 @media only screen and (min-width : 768px) {
     
+    
     .medium-and-large-device-display{
         display: none;
     }
@@ -1128,12 +1141,7 @@
 
 
 
-    .contact {
-        background: url("../images/contact_background.png") no-repeat scroll 0 0 transparent;
-        padding: 89px 10px 12px 22px;
-        margin-top: 25px;
-        margin-bottom: 10px;
-    }
+   
 
     .contact h5 {
         font-size: 16px;
