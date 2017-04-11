@@ -52,6 +52,9 @@
     .contact-card-visibility-hidden-mobile-device{
         display: none;
     }
+    .footer_bg{
+        margin-bottom: 173px;
+    }
     html{
         font: 1em/1.45 sans-serif!important;
         -webkit-text-size-adjust: none
@@ -894,6 +897,9 @@
 .footer_contact_bg{
     background-color: #E0E0E0;
     border-bottom: 1px solid #C1C1C1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 .footer-contact-custom{
     margin-top: 10px!important;
